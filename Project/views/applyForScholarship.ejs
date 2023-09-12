@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Student Information</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <style>
+    /* Your existing styles here */
+
+    /* Additional styling for new form fields */
+    .w3-section label {
+      font-weight: bold;
+      color: #555;
+      margin-top: 10px;
+    }
+    .w3-section input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+    <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+        <a href="javascript:void(0)" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+        <div class="w3-container">
+          <h3 class="w3-padding-64"><b>Company<br>Name</b></h3>
+        </div>
+        <div class="w3-bar-block">
+          <a href="" class="w3-bar-item w3-button w3-hover-white">Add Student</a> 
+          <a href="" class="w3-bar-item w3-button w3-hover-white">Add teacher</a> 
+          <a href="" class="w3-bar-item w3-button w3-hover-white">Add Scholarship</a> 
+          <a href="" class="w3-bar-item w3-button w3-hover-white">Add Dues</a> 
+        </div>
+      </nav>
+
+
+
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+  <% if (showDiv) { %>
+  <div class="w3-container" id="contact" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Select Scholarship</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <form action="./applyForScholarship/submit" method="POST" class="w3-container w3-card-4 w3-padding">
+      <div class="w3-container w3-margin w3-section">
+
+        <% options.forEach((option, index) => { %>
+          <label class="w3-text-teal">
+            <input type="radio" name="option" value="<%= option.SCHOLARSHIP_ID %>" class="w3-radio">
+            <%= option.SCHOLARSHIP_TITLE %>
+          </label>
+          <p><%= option.DESCRIPTION %></p>
+          <p> You will get total <%= option.AMOUNT %> for 6 months</p>
+        <% }); %>
+
+      </div>
+
+
+      <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Update Information</button>
+    </form>  
+  </div>
+  <% } %>
+
+  <% if (!showDiv) { %>
+    <% if (div2) { %>
+
+
+    <h1 class="w3-text-red"><b>Your Scholarship is Waiting for approval from your advisor</b></h1>
+    <% } %>
+    <% if (!div2) { %>
+
+
+      <h1 class="w3-text-red"><b>Your Scholarship is approved</b></h1>
+      <% } %>
+
+  <% } %>
+
+
+
+</div>
+
+</body>
+</html>

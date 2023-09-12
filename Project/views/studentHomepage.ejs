@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Student Information</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/SocketIO-Script_STUDENT.js" defer></script>
+  <style>
+    body, h1, h2, h3, h4, h5 {
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      font-size: 16px;
+      background-color: #eedcdc;
+    }
+    .w3-half img {
+      margin-bottom: -6px;
+      margin-top: 16px;
+      opacity: 0.8;
+      cursor: pointer;
+    }
+    .w3-half img:hover {
+      opacity: 1;
+    }
+    .info-label {
+      font-weight: bold;
+      color: #555;
+
+    }
+    .info-data {
+      color: #333;
+    }
+    .info-container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    .info-container h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #ff3c00;
+    }
+    .info-container hr {
+      width: 15px;
+      border: 4px solid #ff3c00;
+      margin: 10px 0;
+      opacity: 0.8;
+      border-radius: 5px;
+    }
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .info-row:last-child {
+      border-bottom: none;
+    }
+    .info-label::after {
+      content: ":";
+    }
+    .info-label {
+      width: 250px;
+    }
+
+
+    /* styles.css */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 435px; /* Adjust the height as needed */
+}
+
+.centered-image {
+    max-width: 20%;
+    max-height: 20%;
+}
+
+  </style>
+</head>
+<body>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+  <a href="javascript:void(0)" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+  <div class="w3-container">
+    <h3 class="w3-padding-64"><b>BIIS</b></h3>
+  </div>
+  <div class="w3-bar-block">
+    <a href="./student/update-info" class="w3-bar-item w3-button w3-hover-white">Update-information</a> 
+    <a href="./student/courses" class="w3-bar-item w3-button w3-hover-white">Add Courses</a> 
+    <a href="./student/viewResult" class="w3-bar-item w3-button w3-hover-white">View Result</a> 
+    <a href="./student/applyForScholarship" class="w3-bar-item w3-button w3-hover-white">Apply For Scholarship</a> 
+    <a href="./student/dues" class="w3-bar-item w3-button w3-hover-white">Dues Status</a> 
+    <a href="./student/advisor" class="w3-bar-item w3-button w3-hover-white">Advisor</a> 
+    <a href="./student/notification" class="w3-bar-item w3-button w3-hover-white">Notification </a> 
+    <a href="./logout" class="w3-bar-item w3-button w3-hover-white">Log Out</a>
+  </div>
+</nav>
+
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+  <header class="w3-container w3-center" style="padding:128px 16px">
+    <h1 class="w3-margin w3-jumbo">WELCOME</h1>
+    <p class="w3-xlarge w3-large"><%= stInfo.FULLNAME %></p>
+    <p class="w3-xlarge">Student No: <%= stInfo.STUDENT_ID %></p>
+    <p class="w3-xlarge"><%= stInfo.DEPT_NAME %></p>
+    <p class="w3-xlarge"><%= stInfo.LT %></p>
+    <p class="w3-xlarge"><%= stInfo.HALL %></p>
+    <img src=" <%= stInfo.image %> " alt="My Image" class="centered-image image-container">>
+  </header>
+
+
+
+  <div class="w3-container" style="margin-top:40px">
+    <div class="info-container">
+      <h1>Your Information</h1>
+      <hr class="w3-round">
+      <div class="info-row">
+        <div class="info-label">Student ID</div>
+        <div class="info-data"><%= studentInfo.studentID %></div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">First Name</div>
+        <div class="info-data"><%= studentInfo.firstName %></div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Last Name</div>
+        <div class="info-data"><%= studentInfo.lastName %></div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Phone No</div>
+        <div class="info-data"><%= studentInfo.phoneNo %></div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Phone No 2</div>
+        <div class="info-data"><%= studentInfo.phoneNo2 %></div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Email</div>
+        <div class="info-data"><%= studentInfo.email %></div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Bank Account</div>
+        <div class="info-data"><%= studentInfo.bankNo %></div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Address</div>
+        <div class="info-data"><%= studentInfo.address %></div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Date of Birth(YYYY-MM-DD)</div>
+        <div class="info-data"><%= studentInfo.dateOfBirth %></div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Hall</div>
+        <div class="info-data"><%= studentInfo.hall %></div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">NID</div>
+        <div class="info-data"><%= studentInfo.nid %></div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Dept ID</div>
+        <div class="info-data"><%= studentInfo.deptID %></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

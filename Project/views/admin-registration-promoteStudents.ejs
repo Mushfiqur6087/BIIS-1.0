@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Student Information</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Poppins"
+    />
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/SocketIO-Script.js" defer></script>
+    <style>
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        font-size: 16px;
+        background-color: #eedcdc;
+      }
+      .w3-half img {
+        margin-bottom: -6px;
+        margin-top: 16px;
+        opacity: 0.8;
+        cursor: pointer;
+      }
+      .w3-half img:hover {
+        opacity: 1;
+      }
+      .info-label {
+        font-weight: bold;
+        color: #555;
+      }
+      .info-data {
+        color: #333;
+      }
+      .info-container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+      .info-container h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+        color: #ff3c00;
+      }
+      .info-container hr {
+        width: 15px;
+        border: 4px solid #ff3c00;
+        margin: 10px 0;
+        opacity: 0.8;
+        border-radius: 5px;
+      }
+      .info-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #ddd;
+      }
+      .info-row:last-child {
+        border-bottom: none;
+      }
+      .info-label::after {
+        content: ":";
+      }
+      .info-label {
+        width: 250px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sidebar/menu -->
+    <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+      <a href="javascript:void(0)" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+      <div class="w3-container">
+        <h3 class="w3-padding-64"><b>BIIS</b></h3>
+      </div>
+      <div class="w3-bar-block">
+        <a href="/admin" class="w3-bar-item w3-button w3-hover-white">Home</a> 
+        <a href="/admin/add-student" class="w3-bar-item w3-button w3-hover-white">Add Student</a> 
+        <a href="/admin/add-teacher" class="w3-bar-item w3-button w3-hover-white">Add teacher</a> 
+        <a href="/admin/add-scholarship" class="w3-bar-item w3-button w3-hover-white">Add Scholarship</a> 
+        <a href="/admin/new-dues" class="w3-bar-item w3-button w3-hover-white">New Dues</a>
+        <a href="/admin/add-dues" class="w3-bar-item w3-button w3-hover-white">Add Dues</a> 
+        <a href="/admin/clear-dues" class="w3-bar-item w3-button w3-hover-white">Clear Dues</a> 
+        <a href="/admin/add-course" class="w3-bar-item w3-button w3-hover-white">Add Course</a> 
+        <a href="/admin/assign-course-teacher" class="w3-bar-item w3-button w3-hover-white">Assign Course Teacher</a>
+        <a href="/admin/registration-promoteStudents" class="w3-bar-item w3-button w3-hover-white">Registration & Promote Student</a>
+        <a href="/admin/studentList" class="w3-bar-item w3-button w3-hover-white">StudentList</a>
+        <a href="/admin/teacherList" class="w3-bar-item w3-button w3-hover-white">TeacherList</a>
+        <a href="/admin/notification" class="w3-bar-item w3-button w3-hover-white">Notification</a>
+    
+      </div>
+    </nav>
+
+    <div class="w3-main" style="margin-left: 340px; margin-right: 40px">
+      <header class="w3-container w3-center" id="2" style="padding: 128px 16px">
+        <h1>
+          Registration status is currently <%= status.REGISTRATION_STATUS %>
+        </h1>
+        <button
+          class="w3-button w3-black w3-padding-large w3-large w3-margin-top"
+          id="openRegistrationBtn"
+        >
+          Open Registration
+        </button>
+        <br />
+        <button
+          class="w3-button w3-black w3-padding-large w3-large w3-margin-top"
+          id="closeRegistrationBtn"
+        >
+          Close Registration
+        </button>
+        <br />
+      </header>
+    </div>
+
+    <script>
+      // Function to send a POST request to a specific URL
+      function sendPostRequest(url, data) {
+        fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json", // You can adjust this based on your server's requirements
+          },
+          body: JSON.stringify(data), // The data you want to send as the request body
+        })
+          .then((response) => {
+            if (response.ok) {
+              console.log("POST request successful");
+            } else {
+              console.error("POST request failed");
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
+
+      const registrationStatus = "<%= status.REGISTRATION_STATUS %>"; // Assuming this is how you get the status
+
+      // Function to create and append a new button
+      function appendNewButton(text) {
+        const newButton = document.createElement("button");
+        newButton.className =
+          "w3-button w3-black w3-padding-large w3-large w3-margin-top";
+        newButton.textContent = text; // Set the button text
+        // Add an event listener to the new button
+        newButton.addEventListener("click", function () {
+          // When the button is clicked, navigate to a new page and send a POST request
+          window.location.href = "/admin/promote-students";
+        }); // Replace with your actual URL for the new page
+
+        // Append the new button to a container (assuming you have a container element)
+        const container = document.getElementById("2"); // Change this selector based on your HTML structure
+        container.appendChild(newButton);
+      }
+      if (registrationStatus === "Close") {
+        appendNewButton("promoteStudents");
+      }
+
+      // Get references to the buttons
+      const openRegistrationBtn = document.getElementById(
+        "openRegistrationBtn"
+      );
+      const closeRegistrationBtn = document.getElementById(
+        "closeRegistrationBtn"
+      );
+
+      // Add event listeners to the buttons
+      openRegistrationBtn.addEventListener("click", function () {
+        // Define the data you want to send for opening registration
+        const data = {
+          action: "Open",
+          // Add other data properties as needed
+        };
+
+        // Send a POST request to the specific URL for opening registration
+        sendPostRequest("/admin/registration-promoteStudents", data);
+        window.location.href = "/admin"; // Replace with your actual URL
+      });
+
+      closeRegistrationBtn.addEventListener("click", function () {
+        // Define the data you want to send for closing registration
+        const data = {
+          action: "Close",
+          // Add other data properties as needed
+        };
+
+        // Send a POST request to the specific URL for closing registration
+        sendPostRequest("/admin/registration-promoteStudents", data);
+        window.location.href = "/admin"; // Replace with your actual URL
+      });
+    </script>
+  </body>
+</html>

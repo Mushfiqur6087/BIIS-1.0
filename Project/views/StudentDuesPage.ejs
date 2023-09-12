@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Student Information</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/SocketIO-Script_STUDENT.js" defer></script>
+  <style>
+    /* Your existing styles here */
+
+    /* Additional styling for new form fields */
+    .w3-section label {
+      font-weight: bold;
+      color: #555;
+      margin-top: 10px;
+    }
+    .w3-section input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+    <a href="javascript:void(0)" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+    <div class="w3-container">
+      <h3 class="w3-padding-64"><b>BIIS</b></h3>
+    </div>
+    <div class="w3-bar-block">
+      <a href="/student" class="w3-bar-item w3-button w3-hover-white">Home</a>
+      <a href="/student/update-info" class="w3-bar-item w3-button w3-hover-white">Update-information</a> 
+      <a href="/student/courses" class="w3-bar-item w3-button w3-hover-white">Add Courses</a> 
+      <a href="/student/viewResult" class="w3-bar-item w3-button w3-hover-white">View Result</a> 
+      <a href="/student/applyForScholarship" class="w3-bar-item w3-button w3-hover-white">Apply For Scholarship</a> 
+      <a href="/student/dues" class="w3-bar-item w3-button w3-hover-white">Dues Status</a> 
+      <a href="/student/advisor" class="w3-bar-item w3-button w3-hover-white">Advisor</a> 
+  
+    </div>
+  </nav>>
+
+
+
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+  <% if (items && Object.keys(items).length > 0) { %>
+  <div class="w3-container"  style="margin-top:75px">
+
+
+    <h1 class="w3-hover-white w3-xxxlarge"> You have total  <%= Object.keys(items).length %> Dues </h1>
+    
+    <ul class="w3-ul w3-card-4">
+      <% items.forEach(function(item) { %>
+        <li class="w3-bar">
+          <div class="w3-bar-item">
+            <span class="w3-large"><strong>Due name: <%= item.DESCRIPTION %></strong></span><br>
+            <span> total amount need to be paid: <%= item.AMOUNT %></span>
+          </div>
+          <div class="w3-bar-item w3-right">
+            <span>Time left until : <%= item.PAYMENT_DATE %> </span>
+          </div>
+        </li>
+      <% }); %>
+    </ul>
+
+
+
+  </div>
+  <% } %>
+
+  <% if (items && Object.keys(items).length <= 0) { %>
+    
+    <h1 class="w3-text-red"><b>Your Currently don't have any dues </b></h1>
+
+
+  <% } %>
+
+
+
+
+
+
+
+</div>
+
+</body>
+</html>

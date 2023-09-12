@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Student Information</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <style>
+    body, h1, h2, h3, h4, h5 {
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      font-size: 16px;
+      background-color: #f2f2f2;
+    }
+    .w3-half img {
+      margin-bottom: -6px;
+      margin-top: 16px;
+      opacity: 0.8;
+      cursor: pointer;
+    }
+    .w3-half img:hover {
+      opacity: 1;
+    }
+
+      /* Custom styles for the table */
+      .custom-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-family: Arial, sans-serif;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .custom-table th,
+    .custom-table td {
+      padding: 12px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+
+    .custom-table thead {
+      background-color: #f2f2f2;
+    }
+
+    .custom-table th {
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+    }
+
+    .custom-table th:hover {
+      background-color: #444;
+    }
+
+    .custom-table tbody tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    .custom-table tbody tr:hover {
+      background-color: #e0e0e0;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+  <a href="javascript:void(0)" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+  <div class="w3-container">
+    <h3 class="w3-padding-64"><b>BIIS</b></h3>
+  </div>
+  <div class="w3-bar-block">
+    <a href="/student" class="w3-bar-item w3-button w3-hover-white">Home</a>
+    <a href="/student/update-info" class="w3-bar-item w3-button w3-hover-white">Update-information</a> 
+    <a href="/student/courses" class="w3-bar-item w3-button w3-hover-white">Add Courses</a> 
+    <a href="/student/viewResult" class="w3-bar-item w3-button w3-hover-white">View Result</a> 
+    <a href="/student/applyForScholarship" class="w3-bar-item w3-button w3-hover-white">Apply For Scholarship</a> 
+    <a href="/student/dues" class="w3-bar-item w3-button w3-hover-white">Dues Status</a> 
+    <a href="/student/advisor" class="w3-bar-item w3-button w3-hover-white">Advisor</a> 
+
+  </div>
+</nav>>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  <!-- Header -->
+  <div class="w3-container" style="margin-top:80px" id="showcase">
+    <h1 class="w3-jumbo"><b>Welcome Student</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+  </div>
+  <div class="table-container">
+    <div class="w3-card-4 w3-white w3-padding">
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th>Course Id</th>
+            <th>Title</th>
+            <th>Credit</th>
+            <th>Grade</th>
+            <th>GradePoint</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <% data.forEach(function(person) { %>
+            <tr>
+              <td><%= person.COURSE_ID %></td>
+              <td><%= person.TITLE %></td>
+              <td><%= person.CREDIT %></td>
+              <td><%= person.GRADE %></td>
+              <td><%= person.G %></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <h1 class="w3-red"><b>Total cgpa : <%= data3.msg %></b></h7>
+  <br>
+  <h1 class="w3-blue"><b>Cgpa  in this term: <%= data2.msg %></b></h7>
+
+
+
+    
+</div>
+
+</body>
+</html>
+

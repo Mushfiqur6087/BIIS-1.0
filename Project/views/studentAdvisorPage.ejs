@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Student Information</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/SocketIO-Script_STUDENT.js" defer></script>
+  <style>
+    /* Your existing styles here */
+
+    /* Additional styling for new form fields */
+    .w3-section label {
+      font-weight: bold;
+      color: #555;
+      margin-top: 10px;
+    }
+    .w3-section input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 435px; /* Adjust the height as needed */
+}
+
+.centered-image {
+    max-width: 20%;
+    max-height: 20%;
+}
+
+  </style>
+</head>
+<body>
+
+  <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+    <a href="javascript:void(0)" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+    <div class="w3-container">
+      <h3 class="w3-padding-64"><b>BIIS</b></h3>
+    </div>
+    <div class="w3-bar-block">
+      <a href="/student" class="w3-bar-item w3-button w3-hover-white">Home</a>
+      <a href="/student/update-info" class="w3-bar-item w3-button w3-hover-white">Update-information</a> 
+      <a href="/student/courses" class="w3-bar-item w3-button w3-hover-white">Add Courses</a> 
+      <a href="/student/viewResult" class="w3-bar-item w3-button w3-hover-white">View Result</a> 
+      <a href="/student/applyForScholarship" class="w3-bar-item w3-button w3-hover-white">Apply For Scholarship</a> 
+      <a href="/student/dues" class="w3-bar-item w3-button w3-hover-white">Dues Status</a> 
+      <a href="/student/advisor" class="w3-bar-item w3-button w3-hover-white">Advisor</a> 
+  
+    </div>
+  </nav>>
+
+
+
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+  <div class="w3-container" id="contact" style="margin-top:5px">
+    <div>
+      <header class="w3-container w3-center" style="padding:128px 16px">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Advisor Information</b></h1>
+        <h1 class="w3-container">Your advisor</h1>
+        <img src=" <%= information.image %> " alt="My Image" class="centered-image image-container">>
+        <h1 class="w3-container"><%= information.FIRSTNAME %> <%= information.LASTNAME %> </h1>
+        <h1 class="w3-container">Teacher ID: <%= information.TEACHER_ID %>  </h1>
+        <h1 class="w3-container"><%= information.RANK %> </h1>
+        <h1 class="w3-container">MAIL: <%= information.MAIL %> </h1>
+        <h1 class="w3-container">PHONE: <%= information.PHONE1 %>,<%= information.PHONE2 %> </h1>
+      </header>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

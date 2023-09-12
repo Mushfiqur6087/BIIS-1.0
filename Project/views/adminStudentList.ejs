@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Student Information</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/SocketIO-Script.js" defer></script>
+  <style>
+    /* Your existing styles here */
+
+    /* Additional styling for new form fields */
+    .w3-section label {
+      font-weight: bold;
+      color: #555;
+      margin-top: 10px;
+    }
+    .w3-section input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .student-image {
+    cursor: pointer;
+    border: 2px solid #ccc; /* Add a border */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3); /* Add a slight shadow */
+  }
+
+  .custom-search-bar {
+            width: 1080px; /* Adjust the width as needed */
+            margin: 10px; /* Add margin for spacing */
+        }
+    .custom-input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ec0c0c; /* Adjust the border thickness and color */
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+
+
+
+
+  </style>
+</head>
+<body>
+  <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+    <a href="javascript:void(0)" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+    <div class="w3-container">
+      <h3 class="w3-padding-64"><b>BIIS</b></h3>
+    </div>
+    <div class="w3-bar-block">
+      <a href="/admin" class="w3-bar-item w3-button w3-hover-white">Home</a> 
+      <a href="/admin/add-student" class="w3-bar-item w3-button w3-hover-white">Add Student</a> 
+      <a href="/admin/add-teacher" class="w3-bar-item w3-button w3-hover-white">Add teacher</a> 
+      <a href="/admin/add-scholarship" class="w3-bar-item w3-button w3-hover-white">Add Scholarship</a> 
+      <a href="/admin/new-dues" class="w3-bar-item w3-button w3-hover-white">New Dues</a>
+      <a href="/admin/add-dues" class="w3-bar-item w3-button w3-hover-white">Add Dues</a> 
+      <a href="/admin/clear-dues" class="w3-bar-item w3-button w3-hover-white">Clear Dues</a> 
+      <a href="/admin/add-course" class="w3-bar-item w3-button w3-hover-white">Add Course</a> 
+      <a href="/admin/assign-course-teacher" class="w3-bar-item w3-button w3-hover-white">Assign Course Teacher</a>
+      <a href="/admin/registration-promoteStudents" class="w3-bar-item w3-button w3-hover-white">Registration & Promote Student</a>
+      <a href="/admin/studentList" class="w3-bar-item w3-button w3-hover-white">StudentList</a>
+      <a href="/admin/teacherList" class="w3-bar-item w3-button w3-hover-white">TeacherList</a>
+      <a href="/admin/notification" class="w3-bar-item w3-button w3-hover-white">Notification</a>
+  
+    </div>
+  </nav>
+
+
+
+
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+  <div class="w3-container" id="contact" style="margin-top:75px">
+
+   <div class="custom-search-bar ">
+    <input type="text" class="custom-input " id="studentSearch" placeholder="Search by Student ID">
+   </div>
+
+     <!-- First Photo Grid-->
+  <% departmentList.forEach(function(department) { %>
+
+    <header class="w3-container w3-center w3-light-grey" style="padding:10px 1px">
+      <p class="w3-large w3-large"><%= department.FULL_DEPARTMENT %></p>
+      <p class="w3-large">Total Students: <%= department.TOTAL_STUDENTS %></p>
+      <p class="w3-large">Total Students in Level 1 And Term 1: <%= department.L1_T1 %></p>
+      <p class="w3-large">Total Students in Level 1 And Term 2: <%= department.L1_T2 %></p>
+      <p class="w3-large">Total Students in Level 2 And Term 1: <%= department.L2_T1 %></p>
+      <p class="w3-large">Total Students in Level 2 And Term 2: <%= department.L2_T2 %></p>
+      <p class="w3-large">Total Students in Level 3 And Term 1: <%= department.L3_T1 %></p>
+      <p class="w3-large">Total Students in Level 3 And Term 2: <%= department.L3_T2 %></p>
+      <p class="w3-large">Total Students in Level 4 And Term 1: <%= department.L4_T1 %></p>
+      <p class="w3-large">Total Students in Level 4 And Term 2: <%= department.L4_T2 %></p>
+    </header>
+
+
+    <% 
+    const studentsInDepartment = studentList.filter(function(student) {
+      return student.DEPT_ID === department.DEPARTMENT_ID;
+    })
+    %>
+
+  <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+    <% studentsInDepartment.forEach(function(student) { %>
+    <div class="w3-quarter">
+      <img src="<%= student.IMAGE %>" alt="Sandwich" class="student-image" title="Click to see more information" style="width:100%" onclick="printStudentId('<%= student.STUDENT_ID %>')">
+      <p class="student-id"> Student Id: <%= student.STUDENT_ID %> </p>
+      <h3> <%= student.FIRST_NAME %> <%= student.LAST_NAME %> </h3>
+      <p> Level: <%= student.LEVEL %> TERM: <%= student.TERM %> </p>
+      <p> Hall: <%= student.HALL %> </p>
+    </div>
+
+    <% }); %>
+
+
+
+
+  </div>
+
+  <% }); %>
+  </div>
+</div>
+
+<script>
+  // Function to handle image click
+  function printStudentId(studentId) {
+    console.log("Clicked on student with ID: " + studentId);
+
+    // Create an object to send data to the server (you can customize this as needed)
+    const requestData = {
+      studentId: studentId
+    };
+
+    // Make a POST request to the server
+    fetch('/admin/studentList/detailedList', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(requestData)
+    })
+    .then(response => {
+      if (response.ok) {
+        console.log('Request sent successfully');
+        window.location.href = "/admin/studentList/detailedList";
+      } else {
+        console.error('Failed to send request to the server');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  }
+</script>
+<script>
+  function filterStudents() {
+    var input, filter, students, student, studentId, i;
+    input = document.getElementById("studentSearch");
+    filter = input.value.toUpperCase();
+    students = document.querySelectorAll(".w3-quarter");
+
+    for (i = 0; i < students.length; i++) {
+      student = students[i];
+      studentId = student.querySelector(".student-id");
+
+      if (studentId) {
+        if (studentId.textContent.toUpperCase().indexOf(filter) > -1) {
+          student.style.display = "";
+        } else {
+          student.style.display = "none";
+        }
+      }
+    }
+  }
+
+  document.getElementById("studentSearch").addEventListener("keyup", filterStudents);
+</script>
+
+
+
+
+</body>
+</html>

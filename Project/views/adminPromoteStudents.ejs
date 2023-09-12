@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Student Information</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Poppins"
+    />
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/SocketIO-Script.js" defer></script>
+    <style>
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        font-size: 16px;
+        background-color: #eedcdc;
+      }
+      .w3-half img {
+        margin-bottom: -6px;
+        margin-top: 16px;
+        opacity: 0.8;
+        cursor: pointer;
+      }
+      .w3-half img:hover {
+        opacity: 1;
+      }
+      .info-label {
+        font-weight: bold;
+        color: #555;
+      }
+      .info-data {
+        color: #333;
+      }
+      .info-container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+      .info-container h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+        color: #ff3c00;
+      }
+      .info-container hr {
+        width: 15px;
+        border: 4px solid #ff3c00;
+        margin: 10px 0;
+        opacity: 0.8;
+        border-radius: 5px;
+      }
+      .info-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #ddd;
+      }
+      .info-row:last-child {
+        border-bottom: none;
+      }
+      .info-label::after {
+        content: ":";
+      }
+      .info-label {
+        width: 250px;
+      }
+
+      .custom-button {
+      font-size: 18px;
+      background-color: red;
+      color: white;
+      border: 2px solid black;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    /* Override some W3.CSS styles */
+    .custom-button:hover {
+      background-color: darkred;
+    }
+    </style>
+  </head>
+  <body>
+    <!-- Sidebar/menu -->
+    <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+      <a href="javascript:void(0)" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+      <div class="w3-container">
+        <h3 class="w3-padding-64"><b>BIIS</b></h3>
+      </div>
+      <div class="w3-bar-block">
+        <a href="/admin" class="w3-bar-item w3-button w3-hover-white">Home</a> 
+        <a href="/admin/add-student" class="w3-bar-item w3-button w3-hover-white">Add Student</a> 
+        <a href="/admin/add-teacher" class="w3-bar-item w3-button w3-hover-white">Add teacher</a> 
+        <a href="/admin/add-scholarship" class="w3-bar-item w3-button w3-hover-white">Add Scholarship</a> 
+        <a href="/admin/new-dues" class="w3-bar-item w3-button w3-hover-white">New Dues</a>
+        <a href="/admin/add-dues" class="w3-bar-item w3-button w3-hover-white">Add Dues</a> 
+        <a href="/admin/clear-dues" class="w3-bar-item w3-button w3-hover-white">Clear Dues</a> 
+        <a href="/admin/add-course" class="w3-bar-item w3-button w3-hover-white">Add Course</a> 
+        <a href="/admin/assign-course-teacher" class="w3-bar-item w3-button w3-hover-white">Assign Course Teacher</a>
+        <a href="/admin/registration-promoteStudents" class="w3-bar-item w3-button w3-hover-white">Registration & Promote Student</a>
+        <a href="/admin/studentList" class="w3-bar-item w3-button w3-hover-white">StudentList</a>
+        <a href="/admin/teacherList" class="w3-bar-item w3-button w3-hover-white">TeacherList</a>
+        <a href="/admin/notification" class="w3-bar-item w3-button w3-hover-white">Notification</a>
+    
+      </div>
+    </nav>
+
+    <div class="w3-main" style="margin-left: 340px; margin-right: 40px">
+      <header class="w3-container w3-center"  style="padding: 128px 16px">
+        <% if (count.COUNT > 0) { %>
+        <h1>
+          Can't promote students.</br> Still pending grades of Enrolled students.
+        </h1>
+        <% } else { %>
+          <h3>All the grades of Enrolled students have been assigned.</br>
+          List of students you can promote:
+          </h3>
+          <% resultArray.forEach(function(item) { %>
+            <div class="w3-card w3-padding w3-light-grey" style="margin: 10px;">
+              <h6>
+                <span class="w3-text-blue">STUDENT_ID: <%= item.sid %></span></br>
+                <span class="w3-text-green"><%= item.msg1 %></span></br>
+                <span class="w3-text-red"><%= item.msg2 %></span></br>
+                <span class="w3-text-orange"><%= item.msg3 %></span></br>
+                <span class="w3-text-purple"><%= item.msg4 %></span>
+              </h6>
+            </div> 
+            
+          <% }); %>
+
+          
+
+            <% } %>
+
+            <% if (count2.length > 0) { %>
+              <h3>
+                Some Students can't be promoted</br> 
+              </h3>
+
+              <% count2.forEach(function(item) { %>
+                <div class="w3-card w3-padding w3-light-grey" style="margin: 10px;">
+                  <h6>
+                    <span class="w3-text-blue">STUDENT_ID: <%= item.STUDENT_ID %></span></br>
+                    <span class="w3-text-green">Failed In total  <%= item.COURSE_COUNT %> subject</span></br>
+                  </h6>
+                </div> 
+                
+              <% }); %>
+    
+              
+    
+                <% } %>  
+                <div>
+                  <button class="w3-button w3-blue custom-button" id="promoteButton">
+                    Promote Students
+                  </button>
+                </div>
+
+
+
+
+            
+      </header>
+    </div>
+
+    <script>
+      // Function to fetch data from another website
+      function fetchData() {
+          const url = '/admin/promote-students/promote';
+          const data = {
+                students:'PromoteStudents'
+                            
+              };
+
+          fetch(url,{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json', 
+                },
+                body: JSON.stringify(data), 
+            })
+              .then(response => {
+                  if (!response.ok) {
+                      throw new Error('Network response was not ok');
+                  }
+                  window.location.href= "/admin" ;
+              })
+              .catch(error => {
+                  console.error('There was a problem with the fetch operation:', error);
+              });
+      }
+
+      // Add an event listener to the button
+      document.getElementById('promoteButton').addEventListener('click', fetchData);
+  </script>
+
+  </body>
+</html>

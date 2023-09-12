@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Teacher Information</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/SocketIO-Script_TEACHER.js" defer></script>
+  <style>
+    /* Your existing styles here */
+
+    /* Additional styling for new form fields */
+    .w3-section label {
+      font-weight: bold;
+      color: #555;
+      margin-top: 10px;
+    }
+    .w3-section input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    /* Custom styling for the item container */
+.item-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adjust the gap between items */
+}
+
+/* Custom styling for each item */
+.item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9; /* Set the background color for items */
+}
+
+/* Move the checkbox slightly down */
+.checkbox {
+    margin-top: 5px;
+}
+
+/* Style each detail span */
+.item-details span {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Different text color for odd and even items */
+.item:nth-child(odd) {
+    color: #be3f3f;
+}
+
+.item:nth-child(even) {
+    color: #1916d7;
+}
+.selected-item {
+    background-color: #e8d7ae; 
+}
+
+
+
+  </style>
+</head>
+<body>
+
+  <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+    <a href="javascript:void(0)" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+    <div class="w3-container">
+      <h3 class="w3-padding-64"><b>BIIS</b></h3>
+    </div>
+    <div class="w3-bar-block">
+      <a href="/teacher" class="w3-bar-item w3-button w3-hover-white"> Home </a> 
+      <a href="/teacher/update-info" class="w3-bar-item w3-button w3-hover-white"> Update-information </a> 
+      <a href="/teacher/assign-grade" class="w3-bar-item w3-button w3-hover-white">Assign Grade </a> 
+      <a href="/teacher/approve-courses" class="w3-bar-item w3-button w3-hover-white">Approve Courses </a> 
+      <a href="/teacher/approve-scholarship" class="w3-bar-item w3-button w3-hover-white">Approve Scholarship </a> 
+    </div>
+  </nav>
+
+
+
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  <% if (itemsArray && Object.keys(itemsArray).length > 0) { %>
+    <form action="./approve-scholarship/submit" method="POST">
+      <div class="item-container">
+        <% itemsArray.forEach(function(item) { %>
+            <div class="item">
+                <input class="w3-input w3-border checkbox" type="checkbox" name="selectedItems[]" value="<%= item.STUDENT_ID %>  <%= item.SCHOLARSHIP_ID %>">
+                <div class="item-details">
+                    <span class="student-id w3-bold">Student Id:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= item.STUDENT_ID %></span><br>
+                    <span class="student-name w3-bold">Scholarship Title: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <%= item.SCHOLARSHIP_TITLE %></span><br>
+                    <span class="course-title w3-bold">Total Amount:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= item.AMOUNT %></span><br>
+                </div>
+
+                <div class="download-button w3-center w3-margin-top">
+                  <a href="./approve-scholarship/download-pdf/<%= item.STUDENT_ID %>" class="w3-button w3-teal" download>Download Application Pdf</a>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+
+      
+
+
+      <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Update Information</button>
+    </form> 
+    <% } %> 
+
+  <% if (itemsArray && Object.keys(itemsArray).length <= 0) { %>
+    
+    <h1 class="w3-text-red"><b>You don't have any scholarship to approve </b></h1>
+
+
+  <% } %>
+
+</div>
+
+<script>
+  var checkboxes = document.querySelectorAll('.checkbox');
+
+  checkboxes.forEach(function(checkbox) {
+      checkbox.addEventListener('change', function() {
+          var item = this.closest('.item');
+          if (this.checked) {
+              item.classList.add('selected-item');
+          } else {
+              item.classList.remove('selected-item');
+          }
+      });
+  });
+</script>
+
+</body>
+</html>

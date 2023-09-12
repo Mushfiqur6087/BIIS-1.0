@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>  
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+  <style>
+    
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #2c3e50; /* Changed background color */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column; /* Added flex-direction */
+    }
+
+    h1 {
+      text-align: center;
+      color: #ecf0f1; /* Changed text color */
+      margin-bottom: 20px;
+    }
+
+    form {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #34495e; /* Changed label color */
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    input[type="text"] {
+      background-color: #f7f9fc; /* Changed username field background color */
+    }
+
+    input[type="password"] {
+      background-color: #f0f5f9; /* Changed password field background color */
+    }
+
+    button {
+      display: block; /* Adjusted button display */
+      width: 100%; /* Make button full width */
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      background-color: #3498db;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <h1>BUET INSTITUTIONAL INFORMATION SYSTEM</h1>
+  <h7 class="w3-red">Login Page</h7> <!-- Positioned text above the form -->
+  <form action="/login" method="POST">
+    <label for="username">UserID:</label>
+    <input type="text" id="username" name="username" required>
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    
+    <button type="submit">Login</button>
+  </form>
+</body>
+</html>
+

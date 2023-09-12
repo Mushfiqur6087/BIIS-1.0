@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Student Information</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/SocketIO-Script.js" defer></script>
+
+
+
+
+
+  <style>
+    #data-table tbody tr:nth-child(n + 6) {
+  display: none;
+}
+    body, h1, h2, h3, h4, h5 {
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      font-size: 16px;
+      background-color: #f2f2f2;
+    }
+    .w3-half img {
+      margin-bottom: -6px;
+      margin-top: 16px;
+      opacity: 0.8;
+      cursor: pointer;
+    }
+    .w3-half img:hover {
+      opacity: 1;
+    }
+
+      /* Custom styles for the table */
+      .custom-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-family: Arial, sans-serif;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .custom-table th,
+    .custom-table td {
+      padding: 12px;
+      text-align: left;
+      border: 1px solid #573f3f;
+    }
+
+    .custom-table thead {
+      background-color: #f2f2f2;
+    }
+
+    .custom-table th {
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+    }
+
+    .custom-table th:hover {
+      background-color: #444;
+    }
+
+    .custom-table tbody tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    .custom-table tbody tr:hover {
+      background-color: #e0e0e0;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+  <a href="javascript:void(0)" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+  <div class="w3-container">
+    <h3 class="w3-padding-64"><b>BIIS</b></h3>
+  </div>
+  <div class="w3-bar-block">
+    <a href="./admin/add-student" class="w3-bar-item w3-button w3-hover-white">Add Student</a> 
+    <a href="./admin/add-teacher" class="w3-bar-item w3-button w3-hover-white">Add teacher</a> 
+    <a href="./admin/add-scholarship" class="w3-bar-item w3-button w3-hover-white">Add Scholarship</a> 
+    <a href="./admin/new-dues" class="w3-bar-item w3-button w3-hover-white">New Dues</a>
+    <a href="./admin/add-dues" class="w3-bar-item w3-button w3-hover-white">Add Dues</a> 
+    <a href="./admin/clear-dues" class="w3-bar-item w3-button w3-hover-white">Clear Dues</a> 
+    <a href="./admin/add-course" class="w3-bar-item w3-button w3-hover-white">Add Course</a> 
+    <a href="./admin/assign-course-teacher" class="w3-bar-item w3-button w3-hover-white">Assign Course Teacher</a>
+    <a href="./admin/registration-promoteStudents" class="w3-bar-item w3-button w3-hover-white">Registration & Promote Student</a>
+    <a href="./admin/studentList" class="w3-bar-item w3-button w3-hover-white">StudentList</a>
+    <a href="./admin/teacherList" class="w3-bar-item w3-button w3-hover-white">TeacherList</a>
+    <a href="./admin/notification" class="w3-bar-item w3-button w3-hover-white">Notification</a>
+    <a href="./logout" class="w3-bar-item w3-button w3-hover-white">Log Out</a>
+
+  </div>
+</nav>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  <!-- Header -->
+  <div class="w3-container" style="margin-top:80px" id="showcase">
+    <h1 class="w3-jumbo"><b>Welcome Admin</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+  </div>
+  
+  <div class="table-container">
+    <div class="w3-card-4 w3-white w3-padding">
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th>Department Name</th>
+            <th>Total Students</th>
+            <th>Total Teachers</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% data.forEach(function(person) { %>
+            <tr>
+              <td><%= person.DEPARTMENT_NAME %></td>
+              <td><%= person.TOTAL_STUDENTS %></td>
+              <td><%= person.TOTAL_TEACHERS %></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <div class="table-container">
+    <div class="w3-card-4 w3-white w3-padding">
+      <table class="custom-table" id="data-table">
+        <thead>
+          <tr>
+            <th>Department Name</th>
+            <th>Course ID</th>
+            <th>Max Enrollment</th>
+            <th>Current Enrollment</th>
+            <th>Total Teacher </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% data2.forEach(function(person) { %>
+            <tr>
+              <td><%= person.DEPARTMENT_NAME %></td>
+              <td><%= person.COURSE_ID %></td>
+              <td><%= person.MAX_ENROLLMENT %></td>
+              <td><%= person.CURRENT_ENROLLMENT %></td>
+              <td><%= person.TOTAL_TEACHERS %></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      <button  class="w3-button"  id="expand-button">Expand</button>
+    </div>
+  </div>   
+</div>
+
+
+
+<script>
+  const expandButton = document.getElementById("expand-button");
+  const tableRows = document.querySelectorAll("#data-table tbody tr");
+
+  let expanded = false;
+
+  expandButton.addEventListener("click", () => {
+    expanded = !expanded;
+    tableRows.forEach((row, index) => {
+      if (index >= 5) {
+        row.style.display = expanded ? "table-row" : "none";
+      }
+    });
+    expandButton.innerText = expanded ? "Collapse" : "Expand";
+  });
+</script>
+</body>
+</html>
+

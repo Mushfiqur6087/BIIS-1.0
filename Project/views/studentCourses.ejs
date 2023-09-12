@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Teacher Information</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/SocketIO-Script_STUDENT.js" defer></script>
+  <style>
+    /* Your existing styles here */
+
+    /* Additional styling for new form fields */
+    .w3-section label {
+      font-weight: bold;
+      color: #555;
+      margin-top: 10px;
+    }
+    .w3-section input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    /* Custom styling for the item container */
+.item-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adjust the gap between items */
+}
+
+/* Custom styling for each item */
+.item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9; /* Set the background color for items */
+}
+
+/* Move the checkbox slightly down */
+.checkbox {
+    margin-top: 5px;
+}
+
+/* Style each detail span */
+.item-details span {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Different text color for odd and even items */
+.item:nth-child(odd) {
+    color: #be3f3f;
+}
+
+.item:nth-child(even) {
+    color: #1916d7;
+}
+.selected-item {
+    background-color: #e8d7ae; 
+}
+
+      /* Custom styles for the table */
+      .custom-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-family: Arial, sans-serif;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .custom-table th,
+    .custom-table td {
+      padding: 12px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+
+    .custom-table thead {
+      background-color: #f2f2f2;
+    }
+
+    .custom-table th {
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+    }
+
+    .custom-table th:hover {
+      background-color: #444;
+    }
+
+    .custom-table tbody tr:nth-child(even) {
+      background-color: #e6def2;
+    }
+
+    .custom-table tbody tr:hover {
+      background-color: #cc8d8d;
+      cursor: pointer;
+    }
+
+
+
+
+  </style>
+</head>
+<body>
+
+  <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+    <a href="javascript:void(0)" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+    <div class="w3-container">
+      <h3 class="w3-padding-64"><b>BIIS</b></h3>
+    </div>
+    <div class="w3-bar-block">
+      <a href="/student" class="w3-bar-item w3-button w3-hover-white">Home</a>
+      <a href="/student/update-info" class="w3-bar-item w3-button w3-hover-white">Update-information</a> 
+      <a href="/student/courses" class="w3-bar-item w3-button w3-hover-white">Add Courses</a> 
+      <a href="/student/viewResult" class="w3-bar-item w3-button w3-hover-white">View Result</a> 
+      <a href="/student/applyForScholarship" class="w3-bar-item w3-button w3-hover-white">Apply For Scholarship</a> 
+      <a href="/student/dues" class="w3-bar-item w3-button w3-hover-white">Dues Status</a> 
+      <a href="/student/advisor" class="w3-bar-item w3-button w3-hover-white">Advisor</a> 
+  
+    </div>
+  </nav>>
+
+
+
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  <% if (itemsArray && Object.keys(itemsArray).length > 0) { %>
+    <label class="w3-large w3-red">Courses for Level: <%= header.level %> and Term: <%= header.term %> <br>
+    <br></label>
+    <form action="./updateCourse" method="POST" onsubmit="return validateForm()">
+      <div class="item-container">
+        <% itemsArray.forEach(function(item) { %>
+            <div class="item">
+                <input class="w3-input w3-border checkbox" type="checkbox" name="selectedItems[]" value=" <%= item.COURSE_ID %>">
+                <div class="item-details">
+                    <span class="course-id w3-bold">Course Id:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= item.COURSE_ID %></span><br>
+                    <span class="student-id w3-bold">Title:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= item.TITLE %></span><br>
+                    <span class="student-id w3-bold">Credit:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= item.CREDIT %></span><br>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+    <label><input type="checkbox" id="selectAll"> Select All</label>
+
+
+      
+
+
+      <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Update Information</button>
+    </form> 
+    <% } %> 
+
+  <% if (itemsArray && Object.keys(itemsArray).length <= 0) { %>
+    <% if (itemsArray2 && Object.keys(itemsArray2).length <= 0) { %>
+    
+    
+      <h1 class="w3-text-red"><b>You don't have any more courses to enroll . Wait for your advisors approval</b></h1>
+
+  
+  
+    <% } %>
+    <% if (itemsArray2 && Object.keys(itemsArray2).length > 0) { %>
+
+      <div class="table-container">
+        <div class="w3-card-4 w3-white w3-padding">
+          <table class="custom-table">
+            <h1 class="w3-text-red"><b>Your current courses approved by your advisor.</b></h1>
+             <label> (If there are any courses missing contract your advisor) </label>
+           
+            <thead>
+              <tr>
+                <th>Course_ID</th>
+                <th>Title</th>
+                <th>Credit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% itemsArray2.forEach(function(person) { %>
+                <tr>
+                  <td><%= person.COURSE_ID %></td>
+                  <td><%= person.TITLE %></td>
+                  <td><%= person.CREDIT%></td>
+                </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    
+
+    <% } %>
+
+
+  <% } %>
+
+</div>
+
+<script>
+  var checkboxes = document.querySelectorAll('.checkbox');
+
+  checkboxes.forEach(function(checkbox) {
+      checkbox.addEventListener('change', function() {
+          var item = this.closest('.item');
+          if (this.checked) {
+              item.classList.add('selected-item');
+          } else {
+              item.classList.remove('selected-item');
+          }
+      });
+  });
+
+
+
+  document.getElementById("selectAll").addEventListener("change", function () {
+    var checkboxes = document.querySelectorAll(".checkbox");
+    checkboxes.forEach(function (checkbox) {
+        checkbox.checked = this.checked;
+    }, this);
+
+
+});
+
+function validateForm() {
+    const checkboxes = document.querySelectorAll('.checkbox');
+    let allChecked = true;
+
+    checkboxes.forEach(function(checkbox) {
+      if (!checkbox.checked) {
+        allChecked = false;
+        return;
+      }
+    });
+
+    if (!allChecked) {
+      alert('Please select all items before submitting.');
+      return false; // Prevent form submission
+    }
+
+    return true; // Allow form submission
+  }
+</script>
+
+</body>
+</html>

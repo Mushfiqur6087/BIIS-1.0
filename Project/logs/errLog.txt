@@ -1,0 +1,492 @@
+20230830	21:20:23	12b084e3-58d2-4aa0-877b-d8a6e986d629	Error: last line error
+20230830	22:05:35	16ebcdbd-46e0-401d-81ec-71776dacc3cb	ReferenceError: teacherInfo is not defined
+20230830	22:05:35	4397af27-e0ad-470d-9149-13e5eed59775	ReferenceError: teacherInfo is not defined
+20230830	22:05:47	f3239146-05a7-49c3-a387-f2d2294e66f1	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230830	22:05:47	5291fbbd-de71-4299-acb9-6efede2092c7	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230830	22:07:18	8a28b917-2c5a-4c08-a044-8a2d83841c94	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230830	22:07:18	d0b2f3c6-791e-41a4-9e06-916da7551d4c	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230830	23:33:21	9ecb2925-c22c-424a-a0ca-68ebd544065b	Error: Failed to lookup view "teac" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230830	23:35:05	351673d2-c5fd-485b-a16b-fcd0e3bad4ca	Error: Failed to lookup view "teac" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230830	23:35:19	9c5112a6-dccc-41a0-ba1f-1b2e2d97787b	Error: Failed to lookup view "teac" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230830	23:38:10	299b0040-777d-4031-a7a2-1c9d08466652	Error: Failed to lookup view "teac" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230831	00:30:30	955caa59-b5fd-42ec-8b6d-0c11b812ac12	Error: Failed to lookup view "teacherC" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230831	00:32:09	223a6f2c-b686-4697-9ef0-8e6399be0556	Error: Failed to lookup view "teacherC" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230831	00:33:50	ee71872a-4ad3-4178-9ea5-87dd84f5e6f9	Error: Failed to lookup view "teacherC" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230831	00:35:41	8053c2a1-562a-4984-bc39-cb51f7296b9a	Error: Failed to lookup view "teacherC" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230831	00:36:39	835d1b33-3405-46e6-8bd9-f1dcb13e21b3	Error: Failed to lookup view "teacherC" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230831	00:37:46	ae3546f4-bfd6-4e94-a083-7ef0912c80f0	Error: Failed to lookup view "teacherC" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230831	00:38:24	c102105c-67b0-4e0c-a7db-23849490449c	Error: Failed to lookup view "teacherC" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230831	00:40:03	351125c4-72ab-477b-9c26-834c43a5d71e	Error: Failed to lookup view "teacherC" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230831	00:44:58	6008b214-8299-4536-82ef-86c27233b7ba	Error: Failed to lookup view "teacherC" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230831	01:33:12	f2caac65-6b36-4a1a-80f7-31eeff832949	TypeError: C:\Users\hime6\Desktop\Project\views\teacherCourseGPAchange.ejs:46
+    44|   <% if (true) { %>
+    45|   <div class="w3-container" id="contact" style="margin-top:75px">
+ >> 46|     <h1 class="w3-xxxlarge w3-text-red"><b>Assign grade for course <%= studentList[0].COURSE_ID %> </b></h1>
+    47|     <hr style="width:50px;border:5px solid rgb(223, 136, 15)" class="w3-round">
+    48|     <form action="./gradesubmit" method="POST" class="w3-container w3-card-4 w3-padding">
+    49|       <div class="w3-container w3-margin w3-section">
+
+Cannot read properties of undefined (reading 'COURSE_ID')
+20230831	02:42:47	f0b916b8-fa43-4981-8c55-0e18119192a1	ReferenceError: C:\Users\hime6\Desktop\Project\views\teacherApproveCourses.ejs:44
+    42| 
+    43| <div class="w3-main" style="margin-left:340px;margin-right:40px">
+ >> 44|   <% if (items && Object.keys(items).length > 0) { %>
+    45|   <div class="w3-container"  style="margin-top:75px">
+    46| 
+    47| 
+
+items is not defined
+20230831	02:42:47	6d233177-f999-4b0a-96c2-31ebaed11532	ReferenceError: C:\Users\hime6\Desktop\Project\views\teacherApproveCourses.ejs:44
+    42| 
+    43| <div class="w3-main" style="margin-left:340px;margin-right:40px">
+ >> 44|   <% if (items && Object.keys(items).length > 0) { %>
+    45|   <div class="w3-container"  style="margin-top:75px">
+    46| 
+    47| 
+
+items is not defined
+20230831	12:57:00	cdc6879f-a9b6-4ca0-abe8-fa5bc6393930	Error: last line error
+20230831	12:57:13	c85f67a2-1098-493a-b875-3f4c086b565b	ReferenceError: C:\Users\hime6\Desktop\Project\views\teacherApproveCourses.ejs:59
+    57|     <% } %> 
+    58| 
+ >> 59|   <% if (items && Object.keys(items).length <= 0) { %>
+    60|     
+    61|     <h1 class="w3-text-red"><b>You don't have any more courses to approve </b></h1>
+    62| 
+
+items is not defined
+20230831	12:57:13	a3f008d7-43fb-4ee0-ae0b-2ecb1832ffd1	ReferenceError: C:\Users\hime6\Desktop\Project\views\teacherApproveCourses.ejs:59
+    57|     <% } %> 
+    58| 
+ >> 59|   <% if (items && Object.keys(items).length <= 0) { %>
+    60|     
+    61|     <h1 class="w3-text-red"><b>You don't have any more courses to approve </b></h1>
+    62| 
+
+items is not defined
+20230831	12:58:22	02857a9d-7c93-4da8-8538-ef6320637f6c	ReferenceError: C:\Users\hime6\Desktop\Project\views\teacherApproveCourses.ejs:59
+    57|     <% } %> 
+    58| 
+ >> 59|   <% if (items && Object.keys(items).length <= 0) { %>
+    60|     
+    61|     <h1 class="w3-text-red"><b>You don't have any more courses to approve </b></h1>
+    62| 
+
+items is not defined
+20230831	12:58:22	2f4afa56-3a38-4d1e-b673-bde17e05a913	ReferenceError: C:\Users\hime6\Desktop\Project\views\teacherApproveCourses.ejs:59
+    57|     <% } %> 
+    58| 
+ >> 59|   <% if (items && Object.keys(items).length <= 0) { %>
+    60|     
+    61|     <h1 class="w3-text-red"><b>You don't have any more courses to approve </b></h1>
+    62| 
+
+items is not defined
+20230831	13:41:34	ff252728-ee05-423c-9ff2-74396135f364	Error: Failed to lookup view "../../teacher" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230831	13:42:09	c24584e7-ecca-4b3a-a03b-1ca9e151c43f	Error: Failed to lookup view "../../teacher" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230831	14:52:50	1d15759f-2529-495c-a717-04429e6e61c6	Error: Failed to lookup view "teacherApproveCour" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230831	14:52:50	c46ef376-557f-47a1-b98c-4a5b68053d62	Error: Failed to lookup view "teacherApproveCour" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230831	18:51:39	acf83950-fac4-48d4-ba8e-f87ed4e36c51	ReferenceError: C:\Users\hime6\Desktop\Project\views\teacherApproveScholarship.ejs:74
+    72|         </div>
+    73|         <div class="w3-bar-block">
+ >> 74|           <a href="./approve-scholarship/download-pdf/<%= item.STUDENT_ID %>" class="w3-bar-item w3-button w3-hover-white">Add Student</a> 
+    75|           <a href="" class="w3-bar-item w3-button w3-hover-white">Add teacher</a> 
+    76|         </div>
+    77|       </nav>
+
+item is not defined
+20230831	18:51:40	91f86eba-f8b7-4a00-8166-35dc7de32002	ReferenceError: C:\Users\hime6\Desktop\Project\views\teacherApproveScholarship.ejs:74
+    72|         </div>
+    73|         <div class="w3-bar-block">
+ >> 74|           <a href="./approve-scholarship/download-pdf/<%= item.STUDENT_ID %>" class="w3-bar-item w3-button w3-hover-white">Add Student</a> 
+    75|           <a href="" class="w3-bar-item w3-button w3-hover-white">Add teacher</a> 
+    76|         </div>
+    77|       </nav>
+
+item is not defined
+20230831	18:51:40	78391bea-5f9f-433e-8f93-27a44b61323a	ReferenceError: C:\Users\hime6\Desktop\Project\views\teacherApproveScholarship.ejs:74
+    72|         </div>
+    73|         <div class="w3-bar-block">
+ >> 74|           <a href="./approve-scholarship/download-pdf/<%= item.STUDENT_ID %>" class="w3-bar-item w3-button w3-hover-white">Add Student</a> 
+    75|           <a href="" class="w3-bar-item w3-button w3-hover-white">Add teacher</a> 
+    76|         </div>
+    77|       </nav>
+
+item is not defined
+20230831	18:56:14	e1b00143-1876-4f8f-8ff7-ad41468d8979	ReferenceError: path is not defined
+20230831	18:56:21	90df088f-0b49-4f8b-a833-35fceedc7cfe	ReferenceError: path is not defined
+20230831	20:34:34	15918b5d-8c6d-4e51-96f2-f3624598d4a3	MulterError: Unexpected field
+20230831	20:34:55	37570e78-8b1e-4f34-8471-506ca5b4fedd	MulterError: Unexpected field
+20230831	20:35:37	f1f8d6aa-bdd0-491d-9aef-6d47ebc7a223	MulterError: Unexpected field
+20230831	20:40:22	8673324e-09fb-42ac-be5f-c0bbc81e55c3	MulterError: Unexpected field
+20230831	22:23:58	23520ab9-9361-4ab8-8360-e2c1a7bbe310	Error: last line error
+20230831	22:24:27	9b6c266d-3f7b-4b45-a366-ba6e24c14a9a	Error: last line error
+20230901	00:05:39	cdb5a94d-6f8c-4f2b-b32f-3e9de8ca1bb0	Error: last line error
+20230901	00:40:03	68f6728b-2587-46fe-a8bd-2d9976e505fc	Error: last line error
+20230901	15:27:31	b1e647d9-a146-4d84-92c2-53ec6e771c39	Error: last line error
+20230901	15:34:02	a034b992-7035-4e69-bc30-2a66f783a914	Error: last line error
+20230901	16:49:03	2f5fbd48-3511-4ff8-9454-cac1b49e1bf2	Error: last line error
+20230901	18:39:13	ab05f194-3ece-4c68-8541-47924c55bcc8	Error: last line error
+20230901	20:43:40	50764589-76fb-4b1c-8879-0a937d87e446	Error: last line error
+20230901	21:19:24	8c141e22-29bb-4896-a9a3-3d4a44bc251c	Error: last line error
+20230901	22:26:38	f5896d37-2eb5-481d-86a0-ad5f0ce7146c	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230901	22:26:38	50046296-703e-4983-b27b-9ab2d2a67946	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230901	22:44:44	0f73fd22-703b-4585-bb3d-318df3f53641	Error: last line error
+20230902	09:08:42	26f72e8b-ca23-430e-a21c-fbfd993fc89e	Error: last line error
+20230902	09:09:02	a5b7a80e-53c8-4f27-aec2-312667b003b9	Error: last line error
+20230902	16:16:35	1e4b0210-a6db-4032-9d96-e46dc279997a	Error: last line error
+20230902	23:08:11	70b0dc2b-9d41-4359-ae5d-19d4296210dc	Error: last line error
+20230903	19:22:34	49694476-2065-4c2a-889f-ba03e22ba346	Error: last line error
+20230903	19:24:03	a3a625bb-b968-4af0-b817-642ba0a58f32	Error: last line error
+20230904	00:15:36	75be9545-f427-40c4-9751-c1972f9c88df	Error: last line error
+20230904	00:25:29	c907dc98-016b-40b5-9d0d-7edc2cae41e2	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230904	00:25:29	16da3948-5381-4391-a6bd-70777754bfde	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230904	01:04:44	ef0452cd-b4dc-44fc-bfe6-8b360720d94a	Error: Failed to lookup view "ok" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230904	01:15:34	f75aac16-5856-4710-868f-573f38b87530	Error: Failed to lookup view "ok" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230904	01:28:56	5a3c9561-0bf3-4047-addb-14e5fb5d1478	Error: Failed to lookup view "upload" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230904	01:29:56	aa220d7c-d4d8-4fa5-a568-d8e2f718bfc9	Error: Failed to lookup view "upload" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230904	01:31:06	841bf103-630d-4397-82bb-7e105db401ec	Error: Failed to lookup view "upload" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230904	01:33:31	c0b8fc60-06a4-4142-bb77-9a93ba7e22d9	Error: Failed to lookup view "upload" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230904	04:03:07	b7f6f0d1-1202-4a92-9c97-f699ccf257a8	Error: last line error
+20230904	04:11:01	6d4551f1-aada-42b8-a514-2116471f676e	SyntaxError: missing ) after argument list in C:\Users\hime6\Desktop\Project\views\adminHomepage.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option.
+20230904	04:11:02	2863963f-ef09-4ebc-bc06-94d20e43211e	SyntaxError: missing ) after argument list in C:\Users\hime6\Desktop\Project\views\adminHomepage.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option.
+20230904	06:02:05	430f5343-eee5-4b92-9bcf-e834f56d4f41	Error: last line error
+20230904	18:00:32	df3af41b-9831-4849-b6c6-e1592d21c775	Error: last line error
+20230905	13:57:44	cc7d204b-1f91-42b7-a4fa-686fe1753cd0	Error: last line error
+20230905	19:18:12	bf8f159c-5691-44f8-9dbd-d4a236efc4bd	Error: last line error
+20230905	19:45:23	fdde4227-4f11-4678-a796-64af1366c5fe	Error: Failed to lookup view "hibijibi" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230905	19:45:23	6f80ec3a-fee6-4981-8179-61a1186ce5f6	Error: Failed to lookup view "hibijibi" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230905	19:45:40	bbd14e59-b0df-426a-af1f-7775ab314d69	Error: Failed to lookup view "hibijibi" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230905	19:45:40	d41a0a48-893e-4acf-8b2f-d182435deff6	Error: Failed to lookup view "hibijibi" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230905	20:41:10	4a9463f4-7a9c-4f88-a3f0-95329ed0d1e4	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230905	20:41:10	b2ccaa8e-9558-40fd-b24b-7b7f32bc2e3d	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230905	21:36:02	cc5b7b8c-2a8c-4099-868e-511f3cb2aafb	ReferenceError: C:\Users\hime6\Desktop\Project\views\admin-registration-promoteStudents.ejs:102
+    100|     <header class="w3-container w3-center" style="padding:128px 16px">
+    101|       <h1>
+ >> 102|         Your registration status is currently <%= status.REGISTRATION_STATUS %>
+    103|       </h1>
+    104|         <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" id="openRegistrationBtn" >Open Registration</button>
+    105|         <br>
+
+status is not defined
+20230905	21:36:05	631494ef-40c3-4bad-a488-b2ed09d2a2b3	ReferenceError: C:\Users\hime6\Desktop\Project\views\admin-registration-promoteStudents.ejs:102
+    100|     <header class="w3-container w3-center" style="padding:128px 16px">
+    101|       <h1>
+ >> 102|         Your registration status is currently <%= status.REGISTRATION_STATUS %>
+    103|       </h1>
+    104|         <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" id="openRegistrationBtn" >Open Registration</button>
+    105|         <br>
+
+status is not defined
+20230905	21:37:57	d2175887-d347-4614-b8c6-74c3c830f4ad	Error: Failed to lookup view "../admin" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230905	21:37:58	fce3da67-0b37-4012-a110-1fd51cdba266	Error: Failed to lookup view "../admin" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230905	21:41:12	ca6bd0cd-0cac-4ae8-8951-7fdb56fcb249	Error: Failed to lookup view "admin" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230905	21:41:13	eee63d32-a594-4c13-86bd-10f691e5658a	Error: Failed to lookup view "admin" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230905	21:41:13	e75fcf2b-770d-4c76-a424-f423715b472b	Error: Failed to lookup view "admin" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230905	21:41:13	766ef98f-e749-4c89-a792-4c9c7bd23b23	Error: Failed to lookup view "admin" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230905	21:41:13	6af9893a-bd70-4d77-82a0-1f8c2034693e	Error: Failed to lookup view "admin" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230905	21:41:38	6f34a532-985c-4897-9d3c-3571feec1c4f	ReferenceError: C:\Users\hime6\Desktop\Project\views\adminHomepage.ejs:119
+    117|         </thead>
+    118|         <tbody>
+ >> 119|           <% data.forEach(function(person) { %>
+    120|             <tr>
+    121|               <td><%= person.DEPARTMENT_NAME %></td>
+    122|               <td><%= person.TOTAL_STUDENTS %></td>
+
+data is not defined
+20230905	21:41:39	eabdb1f8-5734-4a48-b44f-e2f983c3a28b	ReferenceError: C:\Users\hime6\Desktop\Project\views\adminHomepage.ejs:119
+    117|         </thead>
+    118|         <tbody>
+ >> 119|           <% data.forEach(function(person) { %>
+    120|             <tr>
+    121|               <td><%= person.DEPARTMENT_NAME %></td>
+    122|               <td><%= person.TOTAL_STUDENTS %></td>
+
+data is not defined
+20230905	21:41:39	b975e990-6e93-44c7-abe0-7cff0e734e94	ReferenceError: C:\Users\hime6\Desktop\Project\views\adminHomepage.ejs:119
+    117|         </thead>
+    118|         <tbody>
+ >> 119|           <% data.forEach(function(person) { %>
+    120|             <tr>
+    121|               <td><%= person.DEPARTMENT_NAME %></td>
+    122|               <td><%= person.TOTAL_STUDENTS %></td>
+
+data is not defined
+20230905	21:41:39	ee0d48f7-7eb8-4c94-83c6-ff0ad5341086	ReferenceError: C:\Users\hime6\Desktop\Project\views\adminHomepage.ejs:119
+    117|         </thead>
+    118|         <tbody>
+ >> 119|           <% data.forEach(function(person) { %>
+    120|             <tr>
+    121|               <td><%= person.DEPARTMENT_NAME %></td>
+    122|               <td><%= person.TOTAL_STUDENTS %></td>
+
+data is not defined
+20230905	21:42:06	b18d97c5-3459-48b9-bcfe-7fdb0843a905	ReferenceError: C:\Users\hime6\Desktop\Project\views\adminHomepage.ejs:119
+    117|         </thead>
+    118|         <tbody>
+ >> 119|           <% data.forEach(function(person) { %>
+    120|             <tr>
+    121|               <td><%= person.DEPARTMENT_NAME %></td>
+    122|               <td><%= person.TOTAL_STUDENTS %></td>
+
+data is not defined
+20230905	23:30:07	d1556f7f-da02-4337-927c-d6301453ae67	SyntaxError: Unexpected token ')' in C:\Users\hime6\Desktop\Project\views\adminPromoteStudents.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option.
+20230905	23:30:07	daf6aea9-ee84-4ca5-9a78-67ba61e8b910	SyntaxError: Unexpected token ')' in C:\Users\hime6\Desktop\Project\views\adminPromoteStudents.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option.
+20230905	23:30:56	19d422d9-bbc6-411c-ac91-2a7fd7f9e7e6	SyntaxError: Unexpected token ')' in C:\Users\hime6\Desktop\Project\views\adminPromoteStudents.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option.
+20230905	23:30:56	cce2a764-6440-4cfd-b536-526319135165	SyntaxError: Unexpected token ')' in C:\Users\hime6\Desktop\Project\views\adminPromoteStudents.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option.
+20230906	00:49:48	803fc8ef-82d3-49a5-b1a5-d5725c6597a0	Error: last line error
+20230906	00:49:48	daa68578-7fb5-4b1b-8d1e-e35bf932b9af	Error: last line error
+20230906	00:49:48	91e26b5a-753b-4ffd-83ac-5c4a6d2356cd	Error: last line error
+20230906	00:50:02	e5505cf6-62cd-4153-bab7-9f0bd3ca36f0	Error: last line error
+20230906	01:43:14	e3a501c4-a533-4900-b38d-a3d3231acaf1	Error: last line error
+20230906	01:53:24	5afc717f-ece1-46f5-950b-7f48c5cd3a4d	TypeError: C:\Users\hime6\Desktop\Project\views\adminPromoteStudents.ejs:170
+    168|               </h1>
+    169| 
+ >> 170|               <% count2.forEach(function(item) { %>
+    171|                 <div class="w3-card w3-padding w3-light-grey" style="margin: 10px;">
+    172|                   <h6>
+    173|                     <span class="w3-text-blue">STUDENT_ID: <%= item.STUDENT_ID %></span></br>
+
+count2.forEach is not a function
+20230906	01:53:24	65cd2b3e-ba60-4d33-a7c0-60d287651c54	TypeError: C:\Users\hime6\Desktop\Project\views\adminPromoteStudents.ejs:170
+    168|               </h1>
+    169| 
+ >> 170|               <% count2.forEach(function(item) { %>
+    171|                 <div class="w3-card w3-padding w3-light-grey" style="margin: 10px;">
+    172|                   <h6>
+    173|                     <span class="w3-text-blue">STUDENT_ID: <%= item.STUDENT_ID %></span></br>
+
+count2.forEach is not a function
+20230906	15:18:13	c9b29e8d-e61d-4d1c-94c7-907599c3102b	Error: last line error
+20230906	15:49:14	fc4a616c-84df-4d26-8bae-eace233d8d76	Error: last line error
+20230906	17:22:20	21a7891e-889e-486e-b531-dae0a7c7b121	Error: last line error
+20230906	17:22:20	57b79fba-6f79-4ada-80a6-4a10edbb7ad1	Error: last line error
+20230906	17:22:20	49ac37aa-60fc-44d5-bd59-e259cdd15756	Error: last line error
+20230906	17:22:26	fe2ff508-5902-45b1-a3bf-3225e396ecb6	Error: last line error
+20230906	17:57:32	3c7d6b0e-990b-4e53-a099-facc87e24eac	TypeError: C:\Users\hime6\Desktop\Project\views\adminPromoteStudents.ejs:165
+    163|             <div class="w3-card w3-padding w3-light-grey" style="margin: 10px;">
+    164|               <h6>
+ >> 165|                 <span class="w3-text-blue">STUDENT_ID: <%= item.sid %></span></br>
+    166|                 <span class="w3-text-green"><%= item.msg1 %></span></br>
+    167|                 <span class="w3-text-red"><%= item.msg2 %></span></br>
+    168|                 <span class="w3-text-orange"><%= item.msg3 %></span></br>
+
+Cannot read properties of undefined (reading 'sid')
+20230906	17:57:32	39f55573-7ec3-4f7c-a480-a1a557c30482	TypeError: C:\Users\hime6\Desktop\Project\views\adminPromoteStudents.ejs:165
+    163|             <div class="w3-card w3-padding w3-light-grey" style="margin: 10px;">
+    164|               <h6>
+ >> 165|                 <span class="w3-text-blue">STUDENT_ID: <%= item.sid %></span></br>
+    166|                 <span class="w3-text-green"><%= item.msg1 %></span></br>
+    167|                 <span class="w3-text-red"><%= item.msg2 %></span></br>
+    168|                 <span class="w3-text-orange"><%= item.msg3 %></span></br>
+
+Cannot read properties of undefined (reading 'sid')
+20230906	17:58:11	bba7f3c1-2a76-42ec-a792-6b96b78f97e9	TypeError: C:\Users\hime6\Desktop\Project\views\adminPromoteStudents.ejs:165
+    163|             <div class="w3-card w3-padding w3-light-grey" style="margin: 10px;">
+    164|               <h6>
+ >> 165|                 <span class="w3-text-blue">STUDENT_ID: <%= item.sid %></span></br>
+    166|                 <span class="w3-text-green"><%= item.msg1 %></span></br>
+    167|                 <span class="w3-text-red"><%= item.msg2 %></span></br>
+    168|                 <span class="w3-text-orange"><%= item.msg3 %></span></br>
+
+Cannot read properties of undefined (reading 'sid')
+20230906	17:58:11	3915f871-42ca-4b86-8f44-c0912f21c468	TypeError: C:\Users\hime6\Desktop\Project\views\adminPromoteStudents.ejs:165
+    163|             <div class="w3-card w3-padding w3-light-grey" style="margin: 10px;">
+    164|               <h6>
+ >> 165|                 <span class="w3-text-blue">STUDENT_ID: <%= item.sid %></span></br>
+    166|                 <span class="w3-text-green"><%= item.msg1 %></span></br>
+    167|                 <span class="w3-text-red"><%= item.msg2 %></span></br>
+    168|                 <span class="w3-text-orange"><%= item.msg3 %></span></br>
+
+Cannot read properties of undefined (reading 'sid')
+20230906	20:32:23	e0c00f46-17cf-40f0-81c6-a05e0bae2efb	Error: last line error
+20230907	23:07:35	dfaf4a45-0981-40c3-bda8-bee63c484481	Error: last line error
+20230908	21:12:47	288a62ea-14b1-4c21-b5b6-60f6b4e8140d	Error: last line error
+20230908	21:17:35	cdcc312f-37a1-4979-8872-9dd0a0ba9eb1	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230908	21:17:35	00ec2b35-27b9-4f56-b02e-b0bd8a432f73	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230908	21:24:39	88552e4c-97f7-4507-817f-8aabd941992c	ReferenceError: C:\Users\hime6\Desktop\Project\views\adminAddCourse.ejs:109
+    107|       <div class="info-row">
+    108|         <div class="info-label">Student ID</div>
+ >> 109|         <div class="info-data"><%= studentInfo.studentID %></div>
+    110|       </div>
+    111|       <div class="info-row">
+    112|         <div class="info-label">First Name</div>
+
+studentInfo is not defined
+20230908	21:24:39	72648469-7293-489d-95b1-bc9726f9f3f3	ReferenceError: C:\Users\hime6\Desktop\Project\views\adminAddCourse.ejs:109
+    107|       <div class="info-row">
+    108|         <div class="info-label">Student ID</div>
+ >> 109|         <div class="info-data"><%= studentInfo.studentID %></div>
+    110|       </div>
+    111|       <div class="info-row">
+    112|         <div class="info-label">First Name</div>
+
+studentInfo is not defined
+20230908	21:35:44	f9266343-04e4-4c8c-839f-156a39c37ebf	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230908	22:29:28	3ff78d5f-d3ab-4a04-ae4a-d3b67172192a	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230908	22:30:27	e1b13b7e-2ec4-4321-a909-4a259d9e95c2	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230908	22:30:58	15df1432-aed1-4ae4-8ae1-512bd358e394	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230908	23:00:09	fd230ef4-c5b6-45a1-8faf-c293e3a76eae	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230908	23:02:24	0941f4ff-4359-4c98-826b-33444e428462	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230908	23:02:49	6f27bacd-889c-40fb-a302-7b5c998b9987	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230908	23:03:23	9f91b0c7-55de-436c-83f6-55ac9718a563	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230908	23:08:26	8da1946e-f953-4aef-8aa3-82b630808ede	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230908	23:08:48	6cc35f86-5b8b-4d8f-ac55-4147c8948462	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230908	23:09:18	9ed7621b-c996-4185-8886-918765733bbf	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230908	23:10:10	740015cd-5d63-4b8a-b982-8b6ffee2fe49	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230908	23:10:32	0a58b99b-080a-4e6d-b090-30828f005e7e	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230908	23:10:51	98f500c5-c22a-46b8-8b20-15e9a1940f2e	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230908	23:11:05	c07f11b7-b08e-4015-b241-22ecbc956f2b	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230908	23:11:27	64de0100-a689-4ad3-944b-65bc6fdcdcf2	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230908	23:12:57	699c63f5-c31a-41ea-af38-ec5715cdcedc	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230908	23:13:32	e0a44d73-bf11-4f4f-a8df-99d4d7e25c8f	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230908	23:14:04	9eaa0a1b-238d-4783-9b4d-e9d951dd4e84	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230908	23:14:28	00dbbaff-c4a4-4870-a0cc-53b937d71afd	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230908	23:15:24	1bbd6379-e1e8-477c-82f9-76f8a7f31694	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230908	23:35:44	dadab88d-29c7-43b3-aad5-758acfd38772	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230908	23:35:44	21fb7d03-2346-4771-be1e-1c5166c5ac58	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230909	00:04:29	eefc4ed7-c652-4b5f-b2f1-ea32132a54e1	Error: last line error
+20230909	00:04:29	67f6424f-41aa-4beb-a566-9c5094d52fcd	Error: last line error
+20230909	00:04:29	ac731c86-282d-45bb-930e-9b976c5da74a	Error: last line error
+20230909	00:04:42	5f50d2e8-34f7-48fb-bc6b-4a6ac9acfc8a	Error: last line error
+20230909	00:05:03	4c9d6b17-7fca-454f-8abd-15d3145fbaf4	Error: Failed to lookup view "admi" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230909	00:10:11	5568c853-bb69-4951-a8eb-00cc2170d514	Error: Failed to lookup view "../../admin" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230909	09:49:16	f531a6e2-201f-429c-b759-98034c126205	Error: last line error
+20230909	10:05:23	651b0369-d019-43f2-86bc-5f7edb52d08d	Error: last line error
+20230909	20:59:34	abe621e7-3926-42f8-b56e-a35368776ff7	Error: last line error
+20230909	22:24:21	6a8f6bf6-9a15-44ca-9067-09594a5eaa1c	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230909	22:24:21	4625f575-c79a-41c8-bed2-9080f3fb000c	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230909	22:58:25	b990b769-72cb-4752-a416-c8f0e337681b	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230909	22:58:25	83128e99-4d53-4d34-9275-2e3ad70a028b	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230909	23:00:02	2ec00e62-be05-4972-9cb4-d6c747d3fe38	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230909	23:00:02	d33be7a2-db4e-480d-bc6a-97c5fa50d35e	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230909	23:00:04	5c85e5c9-f6a6-4812-b5b0-2d38afca149b	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230909	23:00:04	27988156-79cb-4336-83e5-ec83d9bbfe16	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230909	23:01:00	58cee656-6523-4cb0-8aa2-edbd2121ea72	Error: Failed to lookup view "adminAddClearDues" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230909	23:01:01	255e22b1-fc1b-4b5f-9f37-8a6f4149b11e	Error: Failed to lookup view "adminAddClearDues" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230909	23:14:30	2178bd43-ae63-4e96-9552-42bf3eef6b08	Error: Failed to lookup view "adminAddClear" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230909	23:14:37	81fb2b4f-5a5f-4824-8aca-55824d9d9020	Error: Failed to lookup view "adminAddClear" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230909	23:14:42	09f85cab-3e2d-4b89-b963-14acf9bf9941	Error: Failed to lookup view "adminAddClear" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230909	23:21:08	d817e117-2935-450c-a5e0-6360297f212e	Error: Failed to lookup view "adminAddClear" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230909	23:21:11	5416427e-2b4e-400b-8828-b8ee42516473	Error: Failed to lookup view "adminAddClear" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230909	23:24:26	0d099393-18c0-4e65-b061-b0b93d7523a8	Error: last line error
+20230910	01:13:56	72f40926-848d-4ef2-8707-9eb35024fdd5	Error: last line error
+20230910	01:13:56	d60d275a-9a79-49ef-a303-ace9ad7b5236	Error: last line error
+20230910	01:13:56	cfc31a43-64ea-4189-b6ec-2fd99b2a1f18	Error: last line error
+20230910	01:14:00	6a779e1e-7946-4192-bb9f-787cf2d53daa	Error: last line error
+20230910	01:14:00	8552df9b-c068-4b29-b8ec-1cdb67e7402a	Error: last line error
+20230910	01:14:03	14f7c354-7905-4f26-8cb5-59310b1b4220	Error: last line error
+20230910	01:14:03	23580111-3cc5-4981-aa10-0d77f31e4302	Error: last line error
+20230910	01:14:03	824565bc-5f18-4b79-8598-e36eaf7dbedb	Error: last line error
+20230910	01:14:04	42ac6275-00a9-495e-9b74-2ca020e72eab	Error: last line error
+20230910	01:14:04	d2614690-4333-4244-97c7-6f453b5789aa	Error: last line error
+20230910	01:15:52	a04b45b4-0a54-4c04-9887-c57d17a36285	Error: last line error
+20230910	01:44:50	05fda40f-feb8-4473-a6a9-b88cc76257d5	ReferenceError: C:\Users\hime6\Desktop\Project\views\adminAddDues.ejs:55
+    53|         <select class="w3-select w3-border" name="option" id="option">
+    54|             <% for (let i = 0; i < optionsArray.length; i++) { %>
+ >> 55|               <option value="<%= optionsArray[i].DUE_ID %>" <% if (selectedOption === optionsArray[i].DUE_ID) { %>selected<% } %>>
+    56|                 <%= optionsArray[i].DESCRIPTION %>
+    57|               </option>
+    58|             <% } %>
+
+selectedOption is not defined
+20230910	01:44:50	7712da74-d670-4954-a799-f283377430bd	ReferenceError: C:\Users\hime6\Desktop\Project\views\adminAddDues.ejs:55
+    53|         <select class="w3-select w3-border" name="option" id="option">
+    54|             <% for (let i = 0; i < optionsArray.length; i++) { %>
+ >> 55|               <option value="<%= optionsArray[i].DUE_ID %>" <% if (selectedOption === optionsArray[i].DUE_ID) { %>selected<% } %>>
+    56|                 <%= optionsArray[i].DESCRIPTION %>
+    57|               </option>
+    58|             <% } %>
+
+selectedOption is not defined
+20230910	03:10:02	6ebc2c49-f3ef-4e26-b5a0-adcb3953cf94	TypeError: C:\Users\hime6\Desktop\Project\views\adminStudentList.ejs:51
+    49|      <!-- First Photo Grid-->
+    50|   <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+ >> 51|     <% studentList.forEach(function(student) { %>
+    52|     <div class="w3-quarter">
+    53|       <img src="<%= student.IMAGE %>" alt="Sandwich" style="width:100%">
+    54|       <p> <%= student.STUDENT_ID %> </p>
+
+Cannot read properties of undefined (reading 'forEach')
+20230910	03:10:02	c763fb63-0c17-4a4e-94a8-b2c4447e2f88	URIError: Failed to decode param '/admin/%3C%=%20student.IMAGE%20%%3E'
+20230910	03:10:03	f1a98c1e-2fab-49c3-bed6-db9a9cc7b1eb	TypeError: C:\Users\hime6\Desktop\Project\views\adminStudentList.ejs:51
+    49|      <!-- First Photo Grid-->
+    50|   <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+ >> 51|     <% studentList.forEach(function(student) { %>
+    52|     <div class="w3-quarter">
+    53|       <img src="<%= student.IMAGE %>" alt="Sandwich" style="width:100%">
+    54|       <p> <%= student.STUDENT_ID %> </p>
+
+Cannot read properties of undefined (reading 'forEach')
+20230910	03:25:44	8005ba4a-6e68-4b1e-8640-51276b86020a	Error: Could not find matching close tag for "<%".
+20230910	03:25:44	ed853e5b-959a-4c17-b7cc-a547bd645f0c	Error: Could not find matching close tag for "<%".
+20230910	03:39:30	905113fc-c4cd-4c90-b705-4df7143b0818	Error: last line error
+20230910	03:39:30	eff7c6e3-74b5-4a90-93d2-df6ec513bbb4	Error: last line error
+20230910	03:39:30	e0e4cd58-c9f4-49d5-b532-c6c70a8260bd	Error: last line error
+20230910	03:40:13	3e0c705a-2767-42e7-8ae6-02ea43ac388b	Error: last line error
+20230910	04:08:40	aceb1247-eb27-4c60-892a-53dc49b40c21	Error: Failed to lookup view "hijibiji" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230910	04:09:00	0f64a560-0554-454c-98ab-c4a0469aae99	Error: Failed to lookup view "admin" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230910	04:09:00	b274522c-f840-473f-82d4-2739bc33dfae	Error: Failed to lookup view "admin" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230910	04:09:28	59732c6a-f943-4150-ac37-2678227ad51b	Error: Failed to lookup view "admin" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230910	04:26:49	7e013eb4-bd2b-4842-9032-3fdce7eccfa9	Error: Failed to lookup view "/admin/adminViewStudentPage" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230910	04:27:16	230b263b-b8bd-449a-b249-1f6c594a0e62	Error: Failed to lookup view "adminViewStudentPage" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230910	04:27:16	ef6d2d04-afa2-4ec9-9a2e-60875b938202	Error: Failed to lookup view "adminViewStudentPage" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230910	04:27:16	ec5d1e3f-2989-4f78-9768-58f368a22dd8	Error: Failed to lookup view "adminViewStudentPage" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230910	04:27:16	9f041e1b-8602-49f9-bec6-7a827fd8e442	Error: Failed to lookup view "adminViewStudentPage" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230910	04:36:57	102c645d-5684-42e9-a8db-ca7e73d91ce0	Error: Failed to lookup view "adminViewStudent" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230910	04:36:57	4987c259-49f7-475b-a18f-bddb82be4b33	Error: Failed to lookup view "adminViewStudent" in views directory "C:\Users\hime6\Desktop\Project\views"
+20230910	10:20:58	a706262c-1945-4375-949d-2263c20d83fd	Error: last line error
+20230910	10:55:45	674629ab-a2f4-4c82-b2a0-68816c90316b	ReferenceError: C:\Users\hime6\Desktop\Project\views\adminteacherList.ejs:85
+    83| 
+    84| 
+ >> 85|     <% 
+    86|     const studentsInDepartment = studentList.filter(function(student) {
+    87|       return student.DEPT_ID === department.DEPARTMENT_ID;
+    88|     })
+
+studentList is not defined
+20230910	10:55:45	29417edc-a73b-4a20-9423-c518210736f4	ReferenceError: C:\Users\hime6\Desktop\Project\views\adminteacherList.ejs:85
+    83| 
+    84| 
+ >> 85|     <% 
+    86|     const studentsInDepartment = studentList.filter(function(student) {
+    87|       return student.DEPT_ID === department.DEPARTMENT_ID;
+    88|     })
+
+studentList is not defined
+20230910	12:57:55	183a78ce-948a-40b3-896b-984b6e3ea2f2	Error: last line error
+20230910	19:07:14	5f4374ff-a21a-4940-a711-878ff1564f3e	Error: last line error
+20230910	20:09:36	33a7050f-9a00-418f-94a0-73f45c5e89d4	Error: last line error
+20230911	01:35:59	c501fd1b-8e78-4bb9-aa17-ed4bceb35194	Error: last line error
+20230911	01:37:48	ac41fc57-048e-431a-8d4a-338e709742a8	Error: last line error
+20230911	08:13:18	49334690-4c2f-4bed-b832-1136b122fbeb	Error: last line error
+20230911	08:13:25	f634be68-4183-4ba8-924a-ef0c024fac78	Error: last line error
+20230911	08:13:25	7080462a-76f2-46f8-91ae-83e9fa2d8165	Error: last line error
+20230911	08:13:26	38bce410-6059-4d80-8593-32b1fa126e18	Error: last line error
+20230911	10:44:29	5ab4d2d3-d12d-4704-b41f-fedeb662c71e	Error: last line error
+20230911	12:20:21	3c938381-1cd0-4ca4-9265-18777f169005	Error: last line error
+20230912	23:13:42	4fc6eb6b-b16d-48fa-9fd4-204d6eec29d2	Error: last line error

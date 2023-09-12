@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Student Information</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/SocketIO-Script_TEACHER.js" defer></script>
+  <style>
+    /* Your existing styles here */
+
+    /* Additional styling for new form fields */
+    .w3-section label {
+      font-weight: bold;
+      color: #555;
+      margin-top: 10px;
+    }
+    .w3-section input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+    <a href="javascript:void(0)" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+    <div class="w3-container">
+      <h3 class="w3-padding-64"><b>BIIS</b></h3>
+    </div>
+    <div class="w3-bar-block">
+      <a href="/teacher" class="w3-bar-item w3-button w3-hover-white"> Home </a> 
+      <a href="/teacher/update-info" class="w3-bar-item w3-button w3-hover-white"> Update-information </a> 
+      <a href="/teacher/assign-grade" class="w3-bar-item w3-button w3-hover-white">Assign Grade </a> 
+      <a href="/teacher/approve-courses" class="w3-bar-item w3-button w3-hover-white">Approve Courses </a> 
+      <a href="/teacher/approve-scholarship" class="w3-bar-item w3-button w3-hover-white">Approve Scholarship </a> 
+    </div>
+  </nav>
+
+
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+  <% if (true) { %>
+  <div class="w3-container" id="contact" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Assign grade for course <%= studentList[0].COURSE_ID %> </b></h1>
+    <hr style="width:50px;border:5px solid rgb(223, 136, 15)" class="w3-round">
+    <form action="./gradesubmit" method="POST" class="w3-container w3-card-4 w3-padding">
+      <div class="w3-container w3-margin w3-section">
+        <ul class="w3-ul w3-hoverable">
+            <% for (let i = 0; i < studentList.length; i++) { %>
+                <li class="w3-padding-small">
+                    <label for="<%= studentList[i] %>" class="w3-label">Student Id: <%= studentList[i].STUDENT_ID %> <br> Student Name: <%= studentList[i].NAME %> </label>
+                    <select id="<%= studentList[i] %>" name="grades[]" required class="w3-select">
+                        <option value="" disabled selected>Select a grade</option>
+                        <option value="<%= studentList[i].STUDENT_ID %> A+  ">A+</option>
+                        <option value="<%= studentList[i].STUDENT_ID %> A   ">A</option>
+                        <option value="<%= studentList[i].STUDENT_ID %> A-  ">A-</option>
+                        <option value="<%= studentList[i].STUDENT_ID %> B+  ">B+</option>
+                        <option value="<%= studentList[i].STUDENT_ID %> B  ">B</option>
+                        <option value="<%= studentList[i].STUDENT_ID %> B-  ">B-</option>
+                        <option value="<%= studentList[i].STUDENT_ID %> C+  ">C+</option>
+                        <option value="<%= studentList[i].STUDENT_ID %> C  ">C</option>
+                        <option value="<%= studentList[i].STUDENT_ID %> D  ">D</option>
+                        <option value="<%= studentList[i].STUDENT_ID %> F  ">F</option>
+                    </select>
+                </li>
+            <% } %>
+        </ul>
+
+
+      </div>
+
+
+      <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Update Information</button>
+    </form>  
+  </div>
+  <% } %>
+
+
+
+</div>
+
+</body>
+</html>

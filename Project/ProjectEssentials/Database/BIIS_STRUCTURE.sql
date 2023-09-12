@@ -1,0 +1,1641 @@
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : BIIS
+ Source Server Type    : Oracle
+ Source Server Version : 190000 (Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production)
+ Source Host           : localhost:1521
+ Source Schema         : BIIS
+
+ Target Server Type    : Oracle
+ Target Server Version : 190000 (Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production)
+ File Encoding         : 65001
+
+ Date: 11/09/2023 11:00:42
+*/
+
+
+-- ----------------------------
+-- Table structure for ADMIN_LOGS
+-- ----------------------------
+DROP TABLE "BIIS"."ADMIN_LOGS";
+CREATE TABLE "BIIS"."ADMIN_LOGS" (
+  "OPERATON_TYPE" VARCHAR2(255 BYTE) VISIBLE NOT NULL,
+  "DETAILS" VARCHAR2(255 BYTE) VISIBLE NOT NULL,
+  "TABLE" VARCHAR2(255 BYTE) VISIBLE NOT NULL,
+  "CURRENT_DATE" TIMESTAMP(6) VISIBLE NOT NULL
+)
+LOGGING
+NOCOMPRESS
+PCTFREE 10
+INITRANS 1
+STORAGE (
+  INITIAL 65536 
+  NEXT 1048576 
+  MINEXTENTS 1
+  MAXEXTENTS 2147483645
+  BUFFER_POOL DEFAULT
+)
+PARALLEL 1
+NOCACHE
+DISABLE ROW MOVEMENT
+;
+
+-- ----------------------------
+-- Table structure for ADVISOR
+-- ----------------------------
+DROP TABLE "BIIS"."ADVISOR";
+CREATE TABLE "BIIS"."ADVISOR" (
+  "S_ID" NUMBER(7,0) VISIBLE NOT NULL,
+  "I_ID" NUMBER(7,0) VISIBLE NOT NULL
+)
+LOGGING
+NOCOMPRESS
+PCTFREE 10
+INITRANS 1
+STORAGE (
+  INITIAL 65536 
+  NEXT 1048576 
+  MINEXTENTS 1
+  MAXEXTENTS 2147483645
+  BUFFER_POOL DEFAULT
+)
+PARALLEL 1
+NOCACHE
+DISABLE ROW MOVEMENT
+;
+
+-- ----------------------------
+-- Table structure for COURSE
+-- ----------------------------
+DROP TABLE "BIIS"."COURSE";
+CREATE TABLE "BIIS"."COURSE" (
+  "COURSE_ID" VARCHAR2(15 BYTE) VISIBLE NOT NULL,
+  "DEPT_ID" NUMBER(4,0) VISIBLE NOT NULL,
+  "TITLE" VARCHAR2(255 BYTE) VISIBLE NOT NULL,
+  "CREDIT" NUMBER(5,0) VISIBLE NOT NULL,
+  "LEVEL" VARCHAR2(255 BYTE) VISIBLE NOT NULL,
+  "TERM" VARCHAR2(255 BYTE) VISIBLE NOT NULL
+)
+LOGGING
+NOCOMPRESS
+PCTFREE 10
+INITRANS 1
+STORAGE (
+  INITIAL 65536 
+  NEXT 1048576 
+  MINEXTENTS 1
+  MAXEXTENTS 2147483645
+  BUFFER_POOL DEFAULT
+)
+PARALLEL 1
+NOCACHE
+DISABLE ROW MOVEMENT
+;
+
+-- ----------------------------
+-- Table structure for DEPARTMENT
+-- ----------------------------
+DROP TABLE "BIIS"."DEPARTMENT";
+CREATE TABLE "BIIS"."DEPARTMENT" (
+  "DEPARTMENT_ID" NUMBER(4,0) VISIBLE NOT NULL,
+  "DEPARTMENT_NAME" VARCHAR2(25 BYTE) VISIBLE NOT NULL
+)
+LOGGING
+NOCOMPRESS
+PCTFREE 10
+INITRANS 1
+STORAGE (
+  INITIAL 65536 
+  NEXT 1048576 
+  MINEXTENTS 1
+  MAXEXTENTS 2147483645
+  BUFFER_POOL DEFAULT
+)
+PARALLEL 1
+NOCACHE
+DISABLE ROW MOVEMENT
+;
+
+-- ----------------------------
+-- Table structure for DUES
+-- ----------------------------
+DROP TABLE "BIIS"."DUES";
+CREATE TABLE "BIIS"."DUES" (
+  "DUE_ID" NUMBER(7,0) VISIBLE NOT NULL,
+  "DESCRIPTION" VARCHAR2(255 BYTE) VISIBLE,
+  "AMOUNT" NUMBER(5,0) VISIBLE
+)
+LOGGING
+NOCOMPRESS
+PCTFREE 10
+INITRANS 1
+STORAGE (
+  INITIAL 65536 
+  NEXT 1048576 
+  MINEXTENTS 1
+  MAXEXTENTS 2147483645
+  BUFFER_POOL DEFAULT
+)
+PARALLEL 1
+NOCACHE
+DISABLE ROW MOVEMENT
+;
+
+-- ----------------------------
+-- Table structure for ENROLLMENT
+-- ----------------------------
+DROP TABLE "BIIS"."ENROLLMENT";
+CREATE TABLE "BIIS"."ENROLLMENT" (
+  "STUDENT_ID" NUMBER(7,0) VISIBLE NOT NULL,
+  "COURSE_ID" VARCHAR2(255 BYTE) VISIBLE NOT NULL,
+  "GRADE" VARCHAR2(30 BYTE) VISIBLE,
+  "STATUS" VARCHAR2(255 BYTE) VISIBLE NOT NULL
+)
+LOGGING
+NOCOMPRESS
+PCTFREE 10
+INITRANS 1
+STORAGE (
+  INITIAL 65536 
+  NEXT 1048576 
+  MINEXTENTS 1
+  MAXEXTENTS 2147483645
+  BUFFER_POOL DEFAULT
+)
+PARALLEL 1
+NOCACHE
+DISABLE ROW MOVEMENT
+;
+
+-- ----------------------------
+-- Table structure for NOTIFICATION
+-- ----------------------------
+DROP TABLE "BIIS"."NOTIFICATION";
+CREATE TABLE "BIIS"."NOTIFICATION" (
+  "NOTIFICATION_DETAILS" VARCHAR2(255 BYTE) VISIBLE NOT NULL,
+  "STUDENT_ID" NUMBER(10,0) VISIBLE NOT NULL,
+  "TEACHER_ID" NUMBER(10,0) VISIBLE NOT NULL,
+  "CURRENT_DATE" TIMESTAMP(6) VISIBLE NOT NULL
+)
+LOGGING
+NOCOMPRESS
+PCTFREE 10
+INITRANS 1
+STORAGE (
+  INITIAL 65536 
+  NEXT 1048576 
+  MINEXTENTS 1
+  MAXEXTENTS 2147483645
+  BUFFER_POOL DEFAULT
+)
+PARALLEL 1
+NOCACHE
+DISABLE ROW MOVEMENT
+;
+
+-- ----------------------------
+-- Table structure for REGISTRATION
+-- ----------------------------
+DROP TABLE "BIIS"."REGISTRATION";
+CREATE TABLE "BIIS"."REGISTRATION" (
+  "REGISTRATION_STATUS" VARCHAR2(255 BYTE) VISIBLE NOT NULL
+)
+LOGGING
+NOCOMPRESS
+PCTFREE 10
+INITRANS 1
+STORAGE (
+  INITIAL 65536 
+  NEXT 1048576 
+  MINEXTENTS 1
+  MAXEXTENTS 2147483645
+  BUFFER_POOL DEFAULT
+)
+PARALLEL 1
+NOCACHE
+DISABLE ROW MOVEMENT
+;
+
+-- ----------------------------
+-- Table structure for RESULT
+-- ----------------------------
+DROP TABLE "BIIS"."RESULT";
+CREATE TABLE "BIIS"."RESULT" (
+  "STUDENT_ID" NUMBER(10,0) VISIBLE NOT NULL,
+  "COURSE_ID" VARCHAR2(255 BYTE) VISIBLE NOT NULL,
+  "GRADE" VARCHAR2(255 BYTE) VISIBLE NOT NULL,
+  "LEVEL" VARCHAR2(255 BYTE) VISIBLE NOT NULL,
+  "TERM" VARCHAR2(255 BYTE) VISIBLE NOT NULL
+)
+LOGGING
+NOCOMPRESS
+PCTFREE 10
+INITRANS 1
+STORAGE (
+  INITIAL 65536 
+  NEXT 1048576 
+  MINEXTENTS 1
+  MAXEXTENTS 2147483645
+  BUFFER_POOL DEFAULT
+)
+PARALLEL 1
+NOCACHE
+DISABLE ROW MOVEMENT
+;
+
+-- ----------------------------
+-- Table structure for SCHOLARSHIP
+-- ----------------------------
+DROP TABLE "BIIS"."SCHOLARSHIP";
+CREATE TABLE "BIIS"."SCHOLARSHIP" (
+  "SCHOLARSHIP_TITLE" VARCHAR2(255 BYTE) VISIBLE NOT NULL,
+  "DESCRIPTION" VARCHAR2(255 BYTE) VISIBLE NOT NULL,
+  "SCHOLARSHIP_ID" NUMBER(7,0) VISIBLE NOT NULL,
+  "AMOUNT" NUMBER(7,0) VISIBLE
+)
+LOGGING
+NOCOMPRESS
+PCTFREE 10
+INITRANS 1
+STORAGE (
+  INITIAL 65536 
+  NEXT 1048576 
+  MINEXTENTS 1
+  MAXEXTENTS 2147483645
+  BUFFER_POOL DEFAULT
+)
+PARALLEL 1
+NOCACHE
+DISABLE ROW MOVEMENT
+;
+
+-- ----------------------------
+-- Table structure for STUDENT
+-- ----------------------------
+DROP TABLE "BIIS"."STUDENT";
+CREATE TABLE "BIIS"."STUDENT" (
+  "STUDENT_ID" NUMBER(7,0) VISIBLE NOT NULL,
+  "FIRST_NAME" VARCHAR2(255 BYTE) VISIBLE NOT NULL,
+  "LAST_NAME" VARCHAR2(255 BYTE) VISIBLE NOT NULL,
+  "PHONE_NO" NUMBER(11,0) VISIBLE,
+  "PHONE_NO2" NUMBER(11,0) VISIBLE,
+  "EMAIL" VARCHAR2(255 BYTE) VISIBLE,
+  "BANK_ACCOUNT" NUMBER(15,0) VISIBLE,
+  "ADDRESS" VARCHAR2(255 BYTE) VISIBLE,
+  "DATE_OF_BIRTH" DATE VISIBLE,
+  "HALL" VARCHAR2(25 BYTE) VISIBLE,
+  "NID" NUMBER(15,0) VISIBLE,
+  "DEPT_ID" NUMBER(4,0) VISIBLE NOT NULL,
+  "LEVEL" VARCHAR2(255 BYTE) VISIBLE,
+  "TERM" VARCHAR2(255 BYTE) VISIBLE
+)
+LOGGING
+NOCOMPRESS
+PCTFREE 10
+INITRANS 1
+STORAGE (
+  INITIAL 65536 
+  NEXT 1048576 
+  MINEXTENTS 1
+  MAXEXTENTS 2147483645
+  BUFFER_POOL DEFAULT
+)
+PARALLEL 1
+NOCACHE
+DISABLE ROW MOVEMENT
+;
+
+-- ----------------------------
+-- Table structure for STUDENT_DUES
+-- ----------------------------
+DROP TABLE "BIIS"."STUDENT_DUES";
+CREATE TABLE "BIIS"."STUDENT_DUES" (
+  "STUDENT_ID" NUMBER(7,0) VISIBLE NOT NULL,
+  "DUES_ID" NUMBER(7,0) VISIBLE NOT NULL,
+  "PAYMENT_DATE" DATE VISIBLE,
+  "STATUS" VARCHAR2(255 BYTE) VISIBLE
+)
+LOGGING
+NOCOMPRESS
+PCTFREE 10
+INITRANS 1
+STORAGE (
+  INITIAL 65536 
+  NEXT 1048576 
+  MINEXTENTS 1
+  MAXEXTENTS 2147483645
+  BUFFER_POOL DEFAULT
+)
+PARALLEL 1
+NOCACHE
+DISABLE ROW MOVEMENT
+;
+
+-- ----------------------------
+-- Table structure for STUDENT_SCHOLARSHIP
+-- ----------------------------
+DROP TABLE "BIIS"."STUDENT_SCHOLARSHIP";
+CREATE TABLE "BIIS"."STUDENT_SCHOLARSHIP" (
+  "STUDENT_ID" NUMBER(7,0) VISIBLE NOT NULL,
+  "SCHOLARSHIP_ID" NUMBER(7,0) VISIBLE,
+  "STATUS" VARCHAR2(255 BYTE) VISIBLE NOT NULL,
+  "TEACHER_ID" NUMBER(7,0) VISIBLE NOT NULL
+)
+LOGGING
+NOCOMPRESS
+PCTFREE 10
+INITRANS 1
+STORAGE (
+  INITIAL 65536 
+  NEXT 1048576 
+  MINEXTENTS 1
+  MAXEXTENTS 2147483645
+  BUFFER_POOL DEFAULT
+)
+PARALLEL 1
+NOCACHE
+DISABLE ROW MOVEMENT
+;
+
+-- ----------------------------
+-- Table structure for TEACHER
+-- ----------------------------
+DROP TABLE "BIIS"."TEACHER";
+CREATE TABLE "BIIS"."TEACHER" (
+  "TEACHER_ID" NUMBER(7,0) VISIBLE NOT NULL,
+  "DEPT_ID" NUMBER(4,0) VISIBLE NOT NULL,
+  "FIRSTNAME" VARCHAR2(255 BYTE) VISIBLE NOT NULL,
+  "LASTNAME" VARCHAR2(255 BYTE) VISIBLE NOT NULL,
+  "PHONE1" NUMBER(10,0) VISIBLE,
+  "PHONE2" NUMBER(10,0) VISIBLE,
+  "MAIL" VARCHAR2(255 BYTE) VISIBLE,
+  "RANK" VARCHAR2(25 BYTE) VISIBLE,
+  "ADDRESS" VARCHAR2(255 BYTE) VISIBLE,
+  "SALARY" NUMBER(10,0) VISIBLE
+)
+LOGGING
+NOCOMPRESS
+PCTFREE 10
+INITRANS 1
+STORAGE (
+  INITIAL 65536 
+  NEXT 1048576 
+  MINEXTENTS 1
+  MAXEXTENTS 2147483645
+  BUFFER_POOL DEFAULT
+)
+PARALLEL 1
+NOCACHE
+DISABLE ROW MOVEMENT
+;
+
+-- ----------------------------
+-- Table structure for TEACHES
+-- ----------------------------
+DROP TABLE "BIIS"."TEACHES";
+CREATE TABLE "BIIS"."TEACHES" (
+  "ID" NUMBER(5,0) VISIBLE NOT NULL,
+  "COURSE_ID" VARCHAR2(15 BYTE) VISIBLE NOT NULL,
+  "STATUS" VARCHAR2(255 BYTE) VISIBLE NOT NULL
+)
+LOGGING
+NOCOMPRESS
+PCTFREE 10
+INITRANS 1
+STORAGE (
+  INITIAL 65536 
+  NEXT 1048576 
+  MINEXTENTS 1
+  MAXEXTENTS 2147483645
+  BUFFER_POOL DEFAULT
+)
+PARALLEL 1
+NOCACHE
+DISABLE ROW MOVEMENT
+;
+
+-- ----------------------------
+-- Table structure for USER_TABLE
+-- ----------------------------
+DROP TABLE "BIIS"."USER_TABLE";
+CREATE TABLE "BIIS"."USER_TABLE" (
+  "USER_ID" NUMBER(7,0) VISIBLE NOT NULL,
+  "PASSWORD" VARCHAR2(255 BYTE) VISIBLE NOT NULL,
+  "ROLE" VARCHAR2(10 BYTE) VISIBLE NOT NULL
+)
+LOGGING
+NOCOMPRESS
+PCTFREE 10
+INITRANS 1
+STORAGE (
+  INITIAL 65536 
+  NEXT 1048576 
+  MINEXTENTS 1
+  MAXEXTENTS 2147483645
+  BUFFER_POOL DEFAULT
+)
+PARALLEL 1
+NOCACHE
+DISABLE ROW MOVEMENT
+;
+
+-- ----------------------------
+-- Function structure for CHECK_DEPARTMENT
+-- ----------------------------
+CREATE OR REPLACE
+FUNCTION "BIIS"."CHECK_DEPARTMENT" AS
+BEGIN
+    SELECT DEPT_ID INTO S_DEPT FROM STUDENT WHERE STUDENT_ID = SID;
+    SELECT DEPT_ID INTO I_DEPT FROM TEACHER WHERE TEACHER_ID = IID;
+
+    IF S_DEPT = I_DEPT THEN
+        RETURN 1;
+    ELSE
+        RETURN 0;
+    END IF;
+END;
+/
+
+-- ----------------------------
+-- Function structure for CHECK_MAX_ENROLLMENT
+-- ----------------------------
+CREATE OR REPLACE
+FUNCTION "BIIS"."CHECK_MAX_ENROLLMENT" AS
+BEGIN
+SELECT DEPT_ID INTO C_DEPT FROM COURSE WHERE COURSE_ID=CID;
+SELECT "LEVEL" INTO C_LEVEL FROM COURSE WHERE COURSE_ID=CID;
+SELECT "TERM" INTO C_TERM FROM COURSE WHERE COURSE_ID=CID;
+SELECT COUNT(*) INTO S_COUNT FROM STUDENT WHERE "LEVEL"=C_LEVEL AND TERM=C_TERM AND DEPT_ID=C_DEPT;
+RETURN S_COUNT;
+END;
+/
+
+-- ----------------------------
+-- Function structure for CHECK_VALID_TEACHES_ENTRY
+-- ----------------------------
+CREATE OR REPLACE
+PROCEDURE "BIIS"."CHECK_VALID_TEACHES_ENTRY" AS
+BEGIN
+    SELECT DEPT_ID INTO DEP_ID1 FROM TEACHER WHERE I_ID = TEACHER.TEACHER_ID;
+		SELECT REGEXP_SUBSTR(COURSE_ID,'[^ ]+', 1, 1) INTO DEPT_NAME FROM COURSE WHERE 
+		COURSE=COURSE.COURSE_ID;
+		--DBMS_OUTPUT.PUT_LINE(DEPT_NAME);
+		IF DEPT_NAME='MATH' THEN
+		MSG :='valid teaches entry';
+		ELSE
+		SELECT DEPARTMENT_ID INTO DEP_ID2	FROM DEPARTMENT WHERE DEPARTMENT_NAME=DEPT_NAME;
+		--DBMS_OUTPUT.PUT_LINE(DEP_ID1);
+		--DBMS_OUTPUT.PUT_LINE(DEP_ID2);
+		IF DEP_ID1 = DEP_ID2 THEN
+		MSG := 'valid teaches entry';
+		ELSE
+		MSG := 'invalid teaches entry';
+		END IF;
+		END IF;
+
+EXCEPTION
+WHEN NO_DATA_FOUND THEN
+    MSG := 'teacher with current id or course not in database' ;	
+WHEN OTHERS THEN
+    MSG := 'Some unknown error occurred.' ;			
+END;
+/
+
+-- ----------------------------
+-- Function structure for CONVERTGRADETOPOINT
+-- ----------------------------
+CREATE OR REPLACE
+FUNCTION "BIIS"."CONVERTGRADETOPOINT" AS
+BEGIN
+    CASE grade
+        WHEN 'A+' THEN  point := 4.00;
+        WHEN 'A' THEN  point := 3.75;
+        WHEN 'A-' THEN  point := 3.50;
+        WHEN 'B+' THEN  point := 3.25;
+        WHEN 'B' THEN  point := 3.00;
+        WHEN 'B-' THEN point := 2.75;
+        WHEN 'C+' THEN  point := 2.50;
+        WHEN 'C' THEN  point := 2.25;
+        WHEN 'C-' THEN  point := 2.15;
+        WHEN 'F' THEN  point := 0.00;
+    END CASE;
+		
+    RETURN point;
+END;
+/
+
+-- ----------------------------
+-- Function structure for COURSES_STUDENT_CAN_TAKE
+-- ----------------------------
+CREATE OR REPLACE
+FUNCTION "BIIS"."COURSES_STUDENT_CAN_TAKE" AS
+BEGIN
+    SELECT "LEVEL" INTO S_LEVEL FROM STUDENT WHERE STUDENT_ID = SID;
+    SELECT TERM INTO S_TERM FROM STUDENT WHERE STUDENT_ID = SID;
+		SELECT DEPT_ID INTO S_DEPT FROM STUDENT WHERE STUDENT_ID = SID;
+		--DBMS_OUTPUT.PUT_LINE(S_LEVEl || ' '|| S_TERM);
+		SELECT COUNT(*) INTO S_COURSE_COUNT FROM COURSE WHERE DEPT_ID=S_DEPT AND "LEVEL"=S_LEVEL AND TERM=S_TERM;
+		return 'Student '||SID||' took in ' || S_COURSE_COUNT||' courses';
+		
+		
+END;
+/
+
+-- ----------------------------
+-- Function structure for GET_CGPA
+-- ----------------------------
+CREATE OR REPLACE
+FUNCTION "BIIS"."GET_CGPA" AS
+BEGIN
+    FOR rec IN (SELECT DISTINCT R.COURSE_ID,CONVERTGRADETOPOINT(R.GRADE) AS GRADE,
+                                  C.CREDIT
+                FROM RESULT R JOIN COURSE C ON R.COURSE_ID = C.COURSE_ID
+                WHERE R.STUDENT_ID = S_ID AND
+                      C."LEVEL" = (SELECT "LEVEL" FROM STUDENT WHERE STUDENT_ID = S_ID) AND
+                      C.TERM = (SELECT TERM FROM STUDENT WHERE STUDENT_ID = S_ID))
+    LOOP
+        CGPA_CALC := CGPA_CALC + (rec.GRADE * rec.CREDIT);
+        TOTAL_CREDITS := TOTAL_CREDITS + rec.CREDIT;
+    END LOOP;
+
+    IF TOTAL_CREDITS > 0 THEN
+        CGPA := CGPA_CALC / TOTAL_CREDITS;
+    ELSE
+        CGPA := 0;
+    END IF;
+
+    RETURN CGPA; -- Return the calculated CGPA
+END;
+/
+
+-- ----------------------------
+-- Function structure for GET_DEPARTMENT_ID
+-- ----------------------------
+CREATE OR REPLACE
+FUNCTION "BIIS"."GET_DEPARTMENT_ID" AS
+BEGIN
+  -- Use a CASE statement to map department names to department IDs
+  CASE UPPER(p_department_name)
+    WHEN 'BME' THEN v_department_id := 2001;
+    WHEN 'ME'  THEN v_department_id := 2002;
+    WHEN 'CE'  THEN v_department_id := 2003;
+    WHEN 'IPE' THEN v_department_id := 2004;
+    WHEN 'CSE' THEN v_department_id := 2005;
+    WHEN 'EEE' THEN v_department_id := 2006;
+    WHEN 'WRE' THEN v_department_id := 2008;
+    WHEN 'URP' THEN v_department_id := 2009;
+    ELSE
+      v_department_id := NULL; -- Handle unknown department names
+  END CASE;
+
+  RETURN v_department_id;
+END;
+/
+
+-- ----------------------------
+-- Function structure for GET_DEPARTMENT_NAME
+-- ----------------------------
+CREATE OR REPLACE
+FUNCTION "BIIS"."GET_DEPARTMENT_NAME" AS
+BEGIN
+  -- Use a CASE statement to map department IDs to department names
+  CASE p_department_id
+    WHEN 2001 THEN v_department_name := 'BME';
+    WHEN 2002 THEN v_department_name := 'ME';
+    WHEN 2003 THEN v_department_name := 'CE';
+    WHEN 2004 THEN v_department_name := 'IPE';
+    WHEN 2005 THEN v_department_name := 'CSE';
+    WHEN 2006 THEN v_department_name := 'EEE';
+    WHEN 2008 THEN v_department_name := 'WRE';
+    WHEN 2009 THEN v_department_name := 'URP';
+    ELSE
+      v_department_name := 'Unknown'; -- Handle unknown department IDs
+  END CASE;
+
+  RETURN v_department_name;
+END;
+/
+
+-- ----------------------------
+-- Function structure for GET_FULL_DEPARTMENT_NAME
+-- ----------------------------
+CREATE OR REPLACE
+FUNCTION "BIIS"."GET_FULL_DEPARTMENT_NAME" AS
+BEGIN
+    SELECT CASE p_short_name
+               WHEN 'BME' THEN 'Department of Biomedical Engineering'
+               WHEN 'ME' THEN 'Department of Mechanical Engineering'
+               WHEN 'CE' THEN 'Department of Civil Engineering'
+               WHEN 'IPE' THEN 'Department of Industrial and Production Engineering'
+               WHEN 'CSE' THEN 'Department of Computer Science and Engineering'
+               WHEN 'EEE' THEN 'Department of Electrical and Electronics Engineering'
+               WHEN 'WRE' THEN 'Department of Water Resources Engineering'
+               WHEN 'URP' THEN 'Department of Urban and Regional Planning'
+               ELSE 'Unknown Department'
+           END
+    INTO v_full_name
+    FROM DUAL;
+
+    RETURN v_full_name;
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        RETURN 'Department Not Found';
+    WHEN OTHERS THEN
+        RETURN 'Error Occurred';
+END;
+/
+
+-- ----------------------------
+-- Function structure for GET_NEXT_LEVEL_TERM_NAME_FOR_COURSE_STATUS_PROCEDURE
+-- ----------------------------
+CREATE OR REPLACE
+FUNCTION "BIIS"."GET_NEXT_LEVEL_TERM_NAME_FOR_COURSE_STATUS_PROCEDURE" AS
+BEGIN
+    SELECT CASE p_short_name
+               WHEN 'L1T1' THEN 'Student will get promoted to LEVEL: L1 and TERM: T2'
+               WHEN 'L1T2' THEN 'Student will get promoted to LEVEL: L2 and TERM: T1'
+							 WHEN 'L2T1' THEN 'Student will get promoted to LEVEL: L2 and TERM: T2'
+			         WHEN 'L2T2' THEN 'Student will get promoted to LEVEL: L3 and TERM: T1'
+               WHEN 'L3T1' THEN 'Student will get promoted to LEVEL: L3 and TERM: T2'
+							 WHEN 'L3T2' THEN 'Student will get promoted to LEVEL: L4 and TERM: T1'
+							 WHEN 'L4T1' THEN 'Student will get promoted to LEVEL: L4 and TERM: T2'
+							 WHEN 'L4T2' THEN 'Student will graduate if he/she doesnot have any backlog'
+               ELSE 'Unknown level and term'
+           END
+    INTO v_full_name
+    FROM DUAL;
+
+    RETURN v_full_name;
+END;
+/
+
+-- ----------------------------
+-- Function structure for GET_NEXT_LEVEL_TERM_PROCEDURE
+-- ----------------------------
+CREATE OR REPLACE
+PROCEDURE "BIIS"."GET_NEXT_LEVEL_TERM_PROCEDURE" AS
+BEGIN
+    -- Determine the next level and term based on the current level and term
+    SELECT CASE p_current_level || p_current_term
+               WHEN 'L1T1' THEN 'L1T2'
+               WHEN 'L1T2' THEN 'L2T1'
+               WHEN 'L2T1' THEN 'L2T2'
+               WHEN 'L2T2' THEN 'L3T1'
+               WHEN 'L3T1' THEN 'L3T2'
+               WHEN 'L3T2' THEN 'L4T1'
+               WHEN 'L4T1' THEN 'L4T2'
+							 WHEN 'L4T4' THEN 'GDGD'
+               ELSE NULL
+           END
+    INTO v_short_name
+    FROM DUAL;
+
+    -- Use the function to get the description for the next level and term
+    p_next_level := SUBSTR(v_short_name, 1, 2);
+    p_next_term := SUBSTR(v_short_name, 3);
+
+    EXCEPTION
+    WHEN OTHERS THEN
+        p_next_level := 'Unknown';
+        p_next_term := 'Unknown';
+END;
+/
+
+-- ----------------------------
+-- Function structure for GET_PASS_OR_FAIL_STATUS
+-- ----------------------------
+CREATE OR REPLACE
+PROCEDURE "BIIS"."GET_PASS_OR_FAIL_STATUS" AS
+BEGIN
+    -- Declare a cursor to fetch course information for the given student
+    FOR enrollment_record IN (SELECT GRADE
+                               FROM ENROLLMENT 
+                               WHERE STUDENT_ID = p_student_id AND STATUS='Graded') 
+    LOOP
+        -- Check if the grade is 'F' (failed)
+        IF enrollment_record.grade = 'F' THEN
+            v_failed_course_count := v_failed_course_count + 1;
+				ELSE 
+				    v_passed_course_count  :=   v_passed_course_count + 1;
+				   		
+            -- You can add additional logic here to handle the failed course as needed
+        END IF;
+    END LOOP;
+
+    -- Check if there are failed courses
+    IF v_failed_course_count > 0 THEN
+        MSG := 'Failed';
+    ELSIF v_passed_course_count > 0 THEN
+        MSG := 'Passed';
+		ELSE
+		    MSG := 'Not in table';		
+    END IF;
+END;
+/
+
+-- ----------------------------
+-- Function structure for GET_TOTAL_CGPA
+-- ----------------------------
+CREATE OR REPLACE
+FUNCTION "BIIS"."GET_TOTAL_CGPA" AS
+BEGIN
+    FOR rec IN (SELECT DISTINCT R.COURSE_ID,CONVERTGRADETOPOINT(R.GRADE) AS GRADE,
+                                  C.CREDIT
+                FROM RESULT R JOIN COURSE C ON R.COURSE_ID = C.COURSE_ID
+                WHERE R.STUDENT_ID = S_ID AND
+                      C."LEVEL" = (SELECT "LEVEL" FROM STUDENT WHERE STUDENT_ID = S_ID) AND
+                      C.TERM = (SELECT TERM FROM STUDENT WHERE STUDENT_ID = S_ID))
+    LOOP
+        CGPA_CALC := CGPA_CALC + (rec.GRADE * rec.CREDIT);
+        TOTAL_CREDITS := TOTAL_CREDITS + rec.CREDIT;
+    END LOOP;
+
+    IF TOTAL_CREDITS > 0 THEN
+        CGPA := CGPA_CALC / TOTAL_CREDITS;
+    ELSE
+        CGPA := 0;
+    END IF;
+
+    RETURN CGPA; -- Return the calculated CGPA
+END;
+/
+
+-- ----------------------------
+-- Function structure for GET_TOTAL_CGPA_ALL_TERM
+-- ----------------------------
+CREATE OR REPLACE
+PROCEDURE "BIIS"."GET_TOTAL_CGPA_ALL_TERM" AS
+BEGIN
+    FOR rec IN (SELECT DISTINCT R.COURSE_ID,CONVERTGRADETOPOINT(R.GRADE) AS GRADE,
+                                  C.CREDIT
+                FROM RESULT R JOIN COURSE C ON R.COURSE_ID = C.COURSE_ID
+                WHERE R.STUDENT_ID = S_ID )
+    LOOP
+        CGPA_CALC := CGPA_CALC + (rec.GRADE * rec.CREDIT);
+        TOTAL_CREDITS := TOTAL_CREDITS + rec.CREDIT;
+    END LOOP;
+
+    IF TOTAL_CREDITS > 0 THEN
+        CGPA := CGPA_CALC / TOTAL_CREDITS;
+    ELSE
+        CGPA := 0;
+    END IF;
+
+    CG := CGPA;
+END;
+/
+
+-- ----------------------------
+-- Function structure for GET_TOTAL_CGPA_PROCEDURE
+-- ----------------------------
+CREATE OR REPLACE
+PROCEDURE "BIIS"."GET_TOTAL_CGPA_PROCEDURE" AS
+BEGIN
+    FOR rec IN (SELECT DISTINCT R.COURSE_ID,CONVERTGRADETOPOINT(R.GRADE) AS GRADE,
+                                  C.CREDIT
+                FROM RESULT R JOIN COURSE C ON R.COURSE_ID = C.COURSE_ID
+                WHERE R.STUDENT_ID = S_ID AND
+                      C."LEVEL" = TRIM(L) AND
+                      C.TERM = TRIM(T))
+    LOOP
+        CGPA_CALC := CGPA_CALC + (rec.GRADE * rec.CREDIT);
+        TOTAL_CREDITS := TOTAL_CREDITS + rec.CREDIT;
+    END LOOP;
+
+    IF TOTAL_CREDITS > 0 THEN
+        CGPA := CGPA_CALC / TOTAL_CREDITS;
+    ELSE
+        CGPA := 0;
+    END IF;
+
+    CG := CGPA; -- Return the calculated CGPA
+END;
+/
+
+-- ----------------------------
+-- Function structure for STUDENT_COURSE_STATUS
+-- ----------------------------
+CREATE OR REPLACE
+PROCEDURE "BIIS"."STUDENT_COURSE_STATUS" AS
+BEGIN
+SELECT COUNT(*) INTO ST1 FROM ENROLLMENT WHERE STUDENT_ID=S_ID;
+SELECT "LEVEL",TERM INTO L,T FROM STUDENT WHERE STUDENT_ID=S_ID;
+SID :=S_ID;
+MSG1 := COURSES_STUDENT_CAN_TAKE(S_ID);
+MSG2 :='Student Passed in total ' ||ST1 || ' courses';
+MSG3 :='Student is currently studying in LEVEL: ' ||L || ' and TERM: '|| T;
+MSG4 :=GET_NEXT_LEVEL_TERM_NAME_FOR_COURSE_STATUS_PROCEDURE(L||T);
+--DBMS_OUTPUT.PUT_LINE(MSG);
+
+END;
+/
+
+-- ----------------------------
+-- Sequence structure for SEQFORDUES
+-- ----------------------------
+DROP SEQUENCE "BIIS"."SEQFORDUES";
+CREATE SEQUENCE "BIIS"."SEQFORDUES" MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 CACHE 20;
+
+-- ----------------------------
+-- Sequence structure for SEQFORSCHOLARSHIP
+-- ----------------------------
+DROP SEQUENCE "BIIS"."SEQFORSCHOLARSHIP";
+CREATE SEQUENCE "BIIS"."SEQFORSCHOLARSHIP" MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 CACHE 20;
+
+-- ----------------------------
+-- Checks structure for table ADMIN_LOGS
+-- ----------------------------
+ALTER TABLE "BIIS"."ADMIN_LOGS" ADD CONSTRAINT "SYS_C007852" CHECK ("OPERATON_TYPE" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."ADMIN_LOGS" ADD CONSTRAINT "SYS_C007853" CHECK ("DETAILS" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."ADMIN_LOGS" ADD CONSTRAINT "SYS_C007854" CHECK ("TABLE" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."ADMIN_LOGS" ADD CONSTRAINT "SYS_C007855" CHECK ("CURRENT_DATE" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Primary Key structure for table ADVISOR
+-- ----------------------------
+ALTER TABLE "BIIS"."ADVISOR" ADD CONSTRAINT "SYS_C007566" PRIMARY KEY ("S_ID");
+
+-- ----------------------------
+-- Checks structure for table ADVISOR
+-- ----------------------------
+ALTER TABLE "BIIS"."ADVISOR" ADD CONSTRAINT "SYS_C007564" CHECK ("S_ID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."ADVISOR" ADD CONSTRAINT "SYS_C007748" CHECK ("I_ID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Triggers structure for table ADVISOR
+-- ----------------------------
+CREATE TRIGGER "BIIS"."CHECK_VALIDITY_TRIGGER" BEFORE INSERT ON "BIIS"."ADVISOR" REFERENCING OLD AS "OLD" NEW AS "NEW" FOR EACH ROW 
+DECLARE
+value NUMBER;
+BEGIN
+value:=CHECK_DEPARTMENT(:NEW.S_ID, :NEW.I_ID);
+    IF value=0 THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Invalid department check.');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('Valid department check.');
+    END IF;
+END;
+/
+CREATE TRIGGER "BIIS"."advisor_log_table" BEFORE DELETE OR INSERT OR UPDATE ON "BIIS"."ADVISOR" REFERENCING OLD AS "OLD" NEW AS "NEW" FOR EACH ROW 
+DECLARE
+		DETAILS VARCHAR2(200);
+BEGIN
+    IF INSERTING THEN
+				DETAILS:='Inserted:'||
+				' S_ID: ' || TO_CHAR(:NEW.S_ID) ||
+				', I_ID: ' || TO_CHAR(:NEW.I_ID);
+        INSERT INTO ADMIN_LOGS VALUES ('Inserting',DETAILS,'ADVISOR',SYSDATE);
+
+    ELSIF UPDATING THEN
+				DETAILS:='Before Update: ' ||
+				 'S_ID: ' || TO_CHAR(:OLD.S_ID) ||
+				 ', I_ID: ' || TO_CHAR(:OLD.I_ID)||  -------
+         'After Update: ' ||
+					'S_ID: ' || TO_CHAR(:NEW.S_ID) ||
+					', I_ID: ' || TO_CHAR(:NEW.I_ID);
+        INSERT INTO ADMIN_LOGS VALUES ('Updating',DETAILS,'ADVISOR',SYSDATE);
+
+    ELSIF DELETING THEN
+				DETAILS:='Deleted: '||
+				' S_ID: ' || TO_CHAR(:OLD.S_ID) ||
+				', I_ID: ' || TO_CHAR(:OLD.I_ID);
+        INSERT INTO ADMIN_LOGS VALUES ('Deleting',DETAILS,'ADVISOR',SYSDATE);
+
+    END IF;
+END;
+/
+
+-- ----------------------------
+-- Primary Key structure for table COURSE
+-- ----------------------------
+ALTER TABLE "BIIS"."COURSE" ADD CONSTRAINT "SYS_C007573" PRIMARY KEY ("COURSE_ID");
+
+-- ----------------------------
+-- Checks structure for table COURSE
+-- ----------------------------
+ALTER TABLE "BIIS"."COURSE" ADD CONSTRAINT "SYS_C007570" CHECK ("COURSE_ID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."COURSE" ADD CONSTRAINT "SYS_C007571" CHECK ("DEPT_ID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."COURSE" ADD CONSTRAINT "SYS_C007572" CHECK ("TITLE" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."COURSE" ADD CONSTRAINT "SYS_C007609" CHECK ("CREDIT" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."COURSE" ADD CONSTRAINT "SYS_C007751" CHECK ("LEVEL" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."COURSE" ADD CONSTRAINT "SYS_C007752" CHECK ("TERM" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Triggers structure for table COURSE
+-- ----------------------------
+CREATE TRIGGER "BIIS"."LOG_COURSE" BEFORE DELETE OR INSERT OR UPDATE ON "BIIS"."COURSE" REFERENCING OLD AS "OLD" NEW AS "NEW" FOR EACH ROW 
+DECLARE
+		DETAILS VARCHAR2(255);
+BEGIN
+    IF INSERTING THEN
+				DETAILS:='Inserted:'||
+                  '  COURSE_ID: ' || TO_CHAR(:NEW.COURSE_ID) ||
+				         ', DEPT_ID: ' || TO_CHAR(:NEW.DEPT_ID) ||
+				         ', TITLE: ' || TO_CHAR(:NEW.TITLE) ||
+				         ', CREDIT: ' || TO_CHAR(:NEW.CREDIT) ||
+				         ', LEVEL: ' || TO_CHAR(:NEW."LEVEL") ||
+				         ', TERM: ' || TO_CHAR(:NEW.TERM);
+        INSERT INTO ADMIN_LOGS VALUES ('Inserting',DETAILS,'COURSE',SYSDATE);
+
+    ELSIF UPDATING THEN
+				DETAILS:='Before Update:'||
+                 '  COURSE_ID: ' || TO_CHAR(:OLD.COURSE_ID) ||
+				         ', DEPT_ID: ' || TO_CHAR(:OLD.DEPT_ID)||
+				         ', TITLE: ' || TO_CHAR(:OLD.TITLE)||
+				         ', CREDIT: ' || TO_CHAR(:OLD.CREDIT)||
+				         ', LEVEL: ' || TO_CHAR(:OLD."LEVEL")||
+				         ', TERM: ' || TO_CHAR(:OLD.TERM)||
+								 'After Update:'||
+                 '  COURSE_ID: ' || TO_CHAR(:NEW.COURSE_ID) ||
+				         ', DEPT_ID: ' || TO_CHAR(:NEW.DEPT_ID) ||
+				         ', TITLE: ' || TO_CHAR(:NEW.TITLE) ||
+				         ', CREDIT: ' || TO_CHAR(:NEW.CREDIT) ||
+				         ', LEVEL: ' || TO_CHAR(:NEW."LEVEL") ||
+				         ', TERM: ' || TO_CHAR(:NEW.TERM);
+        INSERT INTO ADMIN_LOGS VALUES ('Updating',DETAILS,'COURSE',SYSDATE);
+
+    ELSIF DELETING THEN
+				DETAILS:='Deleted: '||
+                         '  COURSE_ID: ' || TO_CHAR(:NEW.COURSE_ID) ||
+				         ', DEPT_ID: ' || TO_CHAR(:OLD.DEPT_ID) ||
+				         ', TITLE: ' || TO_CHAR(:OLD.TITLE) ||
+				         ', CREDIT: ' || TO_CHAR(:OLD.CREDIT) ||
+				         ', LEVEL: ' || TO_CHAR(:OLD."LEVEL") ||
+				         ', TERM: ' || TO_CHAR(:OLD.TERM);
+        INSERT INTO ADMIN_LOGS VALUES ('Deleting',DETAILS,'COURSE',SYSDATE);
+
+    END IF;
+END;
+/
+
+-- ----------------------------
+-- Primary Key structure for table DEPARTMENT
+-- ----------------------------
+ALTER TABLE "BIIS"."DEPARTMENT" ADD CONSTRAINT "SYS_C007533" PRIMARY KEY ("DEPARTMENT_ID");
+
+-- ----------------------------
+-- Checks structure for table DEPARTMENT
+-- ----------------------------
+ALTER TABLE "BIIS"."DEPARTMENT" ADD CONSTRAINT "SYS_C007531" CHECK ("DEPARTMENT_ID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."DEPARTMENT" ADD CONSTRAINT "SYS_C007532" CHECK ("DEPARTMENT_NAME" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Primary Key structure for table DUES
+-- ----------------------------
+ALTER TABLE "BIIS"."DUES" ADD CONSTRAINT "SYS_C007584" PRIMARY KEY ("DUE_ID");
+
+-- ----------------------------
+-- Checks structure for table DUES
+-- ----------------------------
+ALTER TABLE "BIIS"."DUES" ADD CONSTRAINT "SYS_C007583" CHECK ("DUE_ID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Triggers structure for table DUES
+-- ----------------------------
+CREATE TRIGGER "BIIS"."LOG_DUES" BEFORE DELETE OR INSERT OR UPDATE ON "BIIS"."DUES" REFERENCING OLD AS "OLD" NEW AS "NEW" FOR EACH ROW 
+DECLARE
+		DETAILS VARCHAR2(255);
+BEGIN
+    IF INSERTING THEN
+				DETAILS:='Inserted:' ||
+				' DUE_ID: ' || TO_CHAR(:NEW.DUE_ID) ||
+				', DESCRIPTION: ' || TO_CHAR(:NEW.DESCRIPTION) ||
+                ', AMOUNT: ' || TO_CHAR(:NEW.AMOUNT);
+        INSERT INTO ADMIN_LOGS VALUES ('Inserting',DETAILS,'DUES',SYSDATE);
+
+    ELSIF UPDATING THEN
+				DETAILS:='Before Update: ' ||
+				 'DUE_ID: ' || TO_CHAR(:OLD.DUE_ID) ||
+				 ', DESCRIPTION: ' || TO_CHAR(:OLD.DESCRIPTION)||
+                 ', AMOUNT: ' || TO_CHAR(:OLD.AMOUNT) ||
+         'After Update: ' ||
+					'DUE_ID: ' || TO_CHAR(:NEW.DUE_ID) ||
+					', DESCRIPTION: ' || TO_CHAR(:NEW.DESCRIPTION)||
+     				', AMOUNT: ' || TO_CHAR(:NEW.AMOUNT);
+
+        INSERT INTO ADMIN_LOGS VALUES ('Updating',DETAILS,'DUES',SYSDATE);
+
+    ELSIF DELETING THEN
+				DETAILS:='Deleted:'||
+				' DUE_ID: ' || TO_CHAR(:OLD.DUE_ID) ||
+				', DESCRIPTION: ' || TO_CHAR(:OLD.DESCRIPTION)||
+                ', AMOUNT: ' || TO_CHAR(:OLD.AMOUNT);
+        INSERT INTO ADMIN_LOGS VALUES ('Deleting',DETAILS,'DUES',SYSDATE);
+
+    END IF;
+END;
+/
+
+-- ----------------------------
+-- Primary Key structure for table ENROLLMENT
+-- ----------------------------
+ALTER TABLE "BIIS"."ENROLLMENT" ADD CONSTRAINT "SYS_C007783" PRIMARY KEY ("STUDENT_ID", "COURSE_ID");
+
+-- ----------------------------
+-- Checks structure for table ENROLLMENT
+-- ----------------------------
+ALTER TABLE "BIIS"."ENROLLMENT" ADD CONSTRAINT "SYS_C007577" CHECK ("STUDENT_ID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."ENROLLMENT" ADD CONSTRAINT "SYS_C007578" CHECK ("COURSE_ID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."ENROLLMENT" ADD CONSTRAINT "SYS_C007756" CHECK ("STATUS" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Triggers structure for table ENROLLMENT
+-- ----------------------------
+CREATE TRIGGER "BIIS"."Add_Notifications" BEFORE INSERT ON "BIIS"."ENROLLMENT" REFERENCING OLD AS "OLD" NEW AS "NEW" FOR EACH ROW 
+DECLARE
+value NUMBER;
+BEGIN
+SELECT I_ID INTO value FROM ADVISOR WHERE S_ID= :NEW.STUDENT_ID; 
+INSERT INTO NOTIFICATION VALUES ('Student '|| :NEW.STUDENT_ID || ' applied for registration ',:NEW.STUDENT_ID,value,SYSDATE);
+END;
+/
+CREATE TRIGGER "BIIS"."LOG_ENROLLMENT" BEFORE DELETE OR INSERT OR UPDATE ON "BIIS"."ENROLLMENT" REFERENCING OLD AS "OLD" NEW AS "NEW" FOR EACH ROW 
+DECLARE
+		DETAILS VARCHAR2(255);
+BEGIN
+    IF INSERTING THEN
+				DETAILS:='Inserted:'||
+				' STUDENT_ID: ' || TO_CHAR(:NEW.STUDENT_ID) ||
+				', COURSE_ID: ' || TO_CHAR(:NEW.COURSE_ID) ||
+				', GRADE: ' || TO_CHAR(:NEW.GRADE) ||
+				', STATUS: ' || TO_CHAR(:NEW.STATUS);
+        INSERT INTO ADMIN_LOGS VALUES ('Inserting',DETAILS,'ENROLLMENT',SYSDATE);
+
+    ELSIF UPDATING THEN
+				DETAILS:='Before Update: ' ||
+				 'STUDENT_ID: ' || TO_CHAR(:OLD.STUDENT_ID) ||
+				 ', COURSE_ID: ' || TO_CHAR(:OLD.COURSE_ID) ||
+				 ', GRADE: ' || TO_CHAR(:OLD.GRADE) ||
+				 ', STATUS: ' || TO_CHAR(:OLD.STATUS) ||
+         'After Update: ' ||
+					'STUDENT_ID: ' || TO_CHAR(:NEW.STUDENT_ID) ||
+					', COURSE_ID: ' || TO_CHAR(:NEW.COURSE_ID) ||
+					', GRADE: ' || TO_CHAR(:NEW.GRADE)||
+					', STATUS: ' || TO_CHAR(:NEW.STATUS);
+        INSERT INTO ADMIN_LOGS VALUES ('Updating',DETAILS,'ENROLLMENT',SYSDATE);
+
+    ELSIF DELETING THEN
+				DETAILS:='Deleted: '||
+				' STUDENT_ID: ' || TO_CHAR(:OLD.STUDENT_ID) ||
+				', COURSE_ID: ' || TO_CHAR(:OLD.COURSE_ID) ||
+				', GRADE: ' || TO_CHAR(:OLD.GRADE) ||
+				', STATUS: ' || TO_CHAR(:OLD.STATUS);
+        INSERT INTO ADMIN_LOGS VALUES ('Deleting',DETAILS,'ENROLLMENT',SYSDATE);
+
+    END IF;
+END;
+/
+CREATE TRIGGER "BIIS"."Update_Notifications" BEFORE UPDATE OF "STATUS" ON "BIIS"."ENROLLMENT" REFERENCING OLD AS "OLD" NEW AS "NEW" FOR EACH ROW 
+DECLARE
+value NUMBER;
+st VARCHAR2(30);
+BEGIN
+st := :NEW.STATUS;
+SELECT I_ID INTO value FROM ADVISOR WHERE S_ID= :OLD.STUDENT_ID; 
+IF st = 'approved' THEN
+INSERT INTO NOTIFICATION VALUES (' course is approved by advisor '|| value, :OLD.STUDENT_ID,value,SYSDATE);
+END IF;
+END;
+/
+
+-- ----------------------------
+-- Checks structure for table NOTIFICATION
+-- ----------------------------
+ALTER TABLE "BIIS"."NOTIFICATION" ADD CONSTRAINT "SYS_C007790" CHECK ("NOTIFICATION_DETAILS" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."NOTIFICATION" ADD CONSTRAINT "SYS_C007791" CHECK ("STUDENT_ID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."NOTIFICATION" ADD CONSTRAINT "SYS_C007792" CHECK ("TEACHER_ID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."NOTIFICATION" ADD CONSTRAINT "SYS_C007793" CHECK ("CURRENT_DATE" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Checks structure for table REGISTRATION
+-- ----------------------------
+ALTER TABLE "BIIS"."REGISTRATION" ADD CONSTRAINT "SYS_C007812" CHECK ("REGISTRATION_STATUS" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Triggers structure for table REGISTRATION
+-- ----------------------------
+CREATE TRIGGER "BIIS"."LOG_REGISTRATION" BEFORE DELETE OR INSERT OR UPDATE ON "BIIS"."REGISTRATION" REFERENCING OLD AS "OLD" NEW AS "NEW" FOR EACH ROW 
+DECLARE
+		DETAILS VARCHAR2(255);
+BEGIN
+    IF INSERTING THEN
+				DETAILS:='Inserted:'||
+				' REGISTRATION_STATUS: ' || TO_CHAR(:NEW.REGISTRATION_STATUS);
+        INSERT INTO ADMIN_LOGS VALUES ('Inserting',DETAILS,'REGISTRATION',SYSDATE);
+
+    ELSIF UPDATING THEN
+				DETAILS:='Before Update: ' ||
+				 'REGISTRATION_STATUS: ' || TO_CHAR(:OLD.REGISTRATION_STATUS) ||
+         'After Update: ' ||
+					'REGISTRATION_STATUS: ' || TO_CHAR(:NEW.REGISTRATION_STATUS);
+        INSERT INTO ADMIN_LOGS VALUES ('Updating',DETAILS,'REGISTRATION',SYSDATE);
+
+    ELSIF DELETING THEN
+				DETAILS:='Deleted:'||
+				' REGISTRATION_STATUS: ' || TO_CHAR(:OLD.REGISTRATION_STATUS);
+        INSERT INTO ADMIN_LOGS VALUES ('Deleting',DETAILS,'REGISTRATION',SYSDATE);
+
+    END IF;
+END;
+/
+
+-- ----------------------------
+-- Primary Key structure for table RESULT
+-- ----------------------------
+ALTER TABLE "BIIS"."RESULT" ADD CONSTRAINT "SYS_C007822" PRIMARY KEY ("STUDENT_ID", "COURSE_ID", "LEVEL", "TERM");
+
+-- ----------------------------
+-- Checks structure for table RESULT
+-- ----------------------------
+ALTER TABLE "BIIS"."RESULT" ADD CONSTRAINT "SYS_C007817" CHECK ("STUDENT_ID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."RESULT" ADD CONSTRAINT "SYS_C007818" CHECK ("COURSE_ID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."RESULT" ADD CONSTRAINT "SYS_C007819" CHECK ("GRADE" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."RESULT" ADD CONSTRAINT "SYS_C007820" CHECK ("LEVEL" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."RESULT" ADD CONSTRAINT "SYS_C007821" CHECK ("TERM" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Triggers structure for table RESULT
+-- ----------------------------
+CREATE TRIGGER "BIIS"."LOG_RESULT" BEFORE DELETE OR INSERT OR UPDATE ON "BIIS"."RESULT" REFERENCING OLD AS "OLD" NEW AS "NEW" FOR EACH ROW DISABLE 
+DECLARE
+		DETAILS VARCHAR2(255);
+BEGIN
+    IF INSERTING THEN
+				DETAILS:='Inserted:' ||
+                  '  STUDENT_ID: ' || TO_CHAR(:NEW.STUDENT_ID) ||
+				         ', COURSE_ID: ' || TO_CHAR(:NEW.COURSE_ID)||
+				         ', GRADE: ' || TO_CHAR(:NEW.GRADE)||
+				         ', LEVEL: ' || TO_CHAR(:NEW."LEVEL")||
+				         ', TERM: ' || TO_CHAR(:NEW.TERM);
+        INSERT INTO ADMIN_LOGS VALUES ('Inserting',DETAILS,'RESULT',SYSDATE);
+
+    ELSIF UPDATING THEN
+				DETAILS:='Before Update:'||
+                 '  STUDENT_ID: ' || TO_CHAR(:OLD.STUDENT_ID) ||
+				         ', COURSE_ID: ' || TO_CHAR(:OLD.COURSE_ID)||
+				         ', GRADE: ' || TO_CHAR(:OLD.GRADE) ||
+								 'After Update:'||
+                 '  STUDENT_ID: ' || TO_CHAR(:NEW.STUDENT_ID) ||
+				         ', COURSE_ID: ' || TO_CHAR(:NEW.COURSE_ID)||
+				         ', TERM: ' || TO_CHAR(:NEW.TERM);
+        INSERT INTO ADMIN_LOGS VALUES ('Updating',DETAILS,'RESULT',SYSDATE);
+
+    ELSIF DELETING THEN
+				DETAILS:='Deleted:'||
+                '  STUDENT_ID: ' || TO_CHAR(:OLD.STUDENT_ID) ||
+				         ', COURSE_ID: ' || TO_CHAR(:OLD.COURSE_ID) ||
+				         ', CREDIT: ' || TO_CHAR(:OLD.CREDIT) ||
+				         ', LEVEL: ' || TO_CHAR(:OLD."LEVEL") ||
+				         ', TERM: ' || TO_CHAR(:OLD.TERM);
+        INSERT INTO ADMIN_LOGS VALUES ('Deleting',DETAILS,'RESULT',SYSDATE);
+
+    END IF;
+END;
+/
+
+-- ----------------------------
+-- Primary Key structure for table SCHOLARSHIP
+-- ----------------------------
+ALTER TABLE "BIIS"."SCHOLARSHIP" ADD CONSTRAINT "SYS_C007760" PRIMARY KEY ("SCHOLARSHIP_ID");
+
+-- ----------------------------
+-- Checks structure for table SCHOLARSHIP
+-- ----------------------------
+ALTER TABLE "BIIS"."SCHOLARSHIP" ADD CONSTRAINT "SYS_C007757" CHECK ("SCHOLARSHIP_TITLE" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."SCHOLARSHIP" ADD CONSTRAINT "SYS_C007758" CHECK ("DESCRIPTION" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."SCHOLARSHIP" ADD CONSTRAINT "SYS_C007762" CHECK ("SCHOLARSHIP_ID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Triggers structure for table SCHOLARSHIP
+-- ----------------------------
+CREATE TRIGGER "BIIS"."LOG_SCHOLARSHIP" BEFORE DELETE OR INSERT OR UPDATE ON "BIIS"."SCHOLARSHIP" REFERENCING OLD AS "OLD" NEW AS "NEW" FOR EACH ROW 
+DECLARE
+		DETAILS VARCHAR2(255);
+BEGIN
+    IF INSERTING THEN
+				DETAILS:='Inserted:' ||
+				' SCHOLARSHIP_TITLE: ' || TO_CHAR(:NEW.SCHOLARSHIP_TITLE) ||
+				', DESCRIPTION: ' || TO_CHAR(:NEW.DESCRIPTION) ||
+				', SCHOLARSHIP_ID: ' || TO_CHAR(:NEW.SCHOLARSHIP_ID) ||
+				', AMOUNT: ' || TO_CHAR(:NEW.AMOUNT);
+        INSERT INTO ADMIN_LOGS VALUES ('Inserting',DETAILS,'SCHOLARSHIP',SYSDATE);
+
+    ELSIF UPDATING THEN
+				DETAILS:='Before Update: ' ||
+				 'SCHOLARSHIP_TITLE: ' || TO_CHAR(:OLD.SCHOLARSHIP_TITLE) ||
+				 ', DESCRIPTION: ' || TO_CHAR(:OLD.DESCRIPTION)||
+				 ', SCHOLARSHIP_ID: ' || TO_CHAR(:OLD.SCHOLARSHIP_ID)||
+				 ', AMOUNT: ' || TO_CHAR(:OLD.AMOUNT) ||
+         'After Update: ' ||
+					'SCHOLARSHIP_TITLE: ' || TO_CHAR(:NEW.SCHOLARSHIP_TITLE) ||
+					', DESCRIPTION: ' || TO_CHAR(:NEW.DESCRIPTION)||
+					', SCHOLARSHIP_ID: ' || TO_CHAR(:NEW.SCHOLARSHIP_ID)||
+					', AMOUNT: ' || TO_CHAR(:NEW.AMOUNT);
+        INSERT INTO ADMIN_LOGS VALUES ('Updating',DETAILS,'SCHOLARSHIP',SYSDATE);
+
+    ELSIF DELETING THEN
+				DETAILS:='Deleted:' ||
+				' SCHOLARSHIP_TITLE: ' || TO_CHAR(:OLD.SCHOLARSHIP_TITLE) ||
+				', DESCRIPTION: ' || TO_CHAR(:OLD.DESCRIPTION) ||
+				', SCHOLARSHIP_ID: ' || TO_CHAR(:OLD.SCHOLARSHIP_ID) ||
+				', AMOUNT: ' || TO_CHAR(:OLD.AMOUNT);
+        INSERT INTO ADMIN_LOGS VALUES ('Deleting',DETAILS,'SCHOLARSHIP',SYSDATE);
+				
+    END IF;
+END;
+/
+
+-- ----------------------------
+-- Primary Key structure for table STUDENT
+-- ----------------------------
+ALTER TABLE "BIIS"."STUDENT" ADD CONSTRAINT "SYS_C007535" PRIMARY KEY ("STUDENT_ID");
+
+-- ----------------------------
+-- Checks structure for table STUDENT
+-- ----------------------------
+ALTER TABLE "BIIS"."STUDENT" ADD CONSTRAINT "SYS_C007534" CHECK ("STUDENT_ID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."STUDENT" ADD CONSTRAINT "SYS_C007540" CHECK ("FIRST_NAME" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."STUDENT" ADD CONSTRAINT "SYS_C007541" CHECK ("LAST_NAME" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."STUDENT" ADD CONSTRAINT "SYS_C007546" CHECK ("DEPT_ID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Triggers structure for table STUDENT
+-- ----------------------------
+CREATE TRIGGER "BIIS"."LOG_STUDENT" BEFORE DELETE OR INSERT OR UPDATE ON "BIIS"."STUDENT" REFERENCING OLD AS "OLD" NEW AS "NEW" FOR EACH ROW 
+DECLARE
+		DETAILS VARCHAR2(255);
+BEGIN
+     IF INSERTING THEN
+				DETAILS := 'Inserted:'||
+                  '  STUDENT_ID: ' || TO_CHAR(:NEW.STUDENT_ID) ||
+				         ', FIRST_NAME: ' || TO_CHAR(:NEW.FIRST_NAME)||
+				         ', LAST_NAME: ' || TO_CHAR(:NEW.LAST_NAME)||
+				         ', PHONE_NO: ' || TO_CHAR(:NEW.PHONE_NO)||
+				         ', PHONE_NO2: ' || TO_CHAR(:NEW.PHONE_NO2) ||
+				         ', EMAIL: ' || TO_CHAR(:NEW.EMAIL)||
+				         ', BANK_ACCOUNT: ' || TO_CHAR(:NEW.BANK_ACCOUNT)||
+				         ', ADDRESS: ' || TO_CHAR(:NEW.ADDRESS)||
+				         ', DATE_OF_BIRTH: ' || TO_CHAR(:NEW.DATE_OF_BIRTH)||
+                         ', HALL: ' || TO_CHAR(:NEW.HALL)||
+				         ', NID: ' || TO_CHAR(:NEW.NID)||
+				         ', DEPT_ID: ' || TO_CHAR(:NEW.DEPT_ID)||
+				         ', LEVEL: ' || TO_CHAR(:NEW."LEVEL")||
+				         ', TERM: ' || TO_CHAR(:NEW.TERM);
+        INSERT INTO ADMIN_LOGS VALUES ('Inserting',DETAILS,'STUDENT',SYSDATE);
+
+    ELSIF UPDATING THEN
+				DETAILS:='Before Update:'||
+                 '  STUDENT_ID: ' || TO_CHAR(:OLD.STUDENT_ID) ||
+				         ', FIRST_NAME: ' || TO_CHAR(:OLD.FIRST_NAME)||
+				         ', LAST_NAME: ' || TO_CHAR(:OLD.LAST_NAME)||
+				         ', PHONE_NO: ' || TO_CHAR(:OLD.PHONE_NO)|| 
+								 'After Update:'||
+                 '  STUDENT_ID: ' || TO_CHAR(:NEW.STUDENT_ID) ||
+				         ', FIRST_NAME: ' || TO_CHAR(:NEW.FIRST_NAME)||
+				         ', LAST_NAME: ' || TO_CHAR(:NEW.LAST_NAME)||
+				         ', PHONE_NO: ' || TO_CHAR(:NEW.PHONE_NO)||
+				         ', PHONE_NO2: ' || TO_CHAR(:NEW.PHONE_NO2)|| 
+				         ', TERM: ' || TO_CHAR(:NEW.TERM);
+        INSERT INTO ADMIN_LOGS VALUES ('Updating',DETAILS,'STUDENT',SYSDATE);
+
+    ELSIF DELETING THEN
+				DETAILS:='Deleted:'||
+                  '  STUDENT_ID: ' || TO_CHAR(:OLD.STUDENT_ID) ||
+				         ', FIRST_NAME: ' || TO_CHAR(:OLD.FIRST_NAME) ||
+				         ', LAST_NAME: ' || TO_CHAR(:OLD.LAST_NAME) ||
+				         ', PHONE_NO: ' || TO_CHAR(:OLD.PHONE_NO) ||
+				         ', PHONE_NO2: ' || TO_CHAR(:OLD.PHONE_NO2) ||
+				         '  STUDENT_ID: ' || TO_CHAR(:OLD.STUDENT_ID) ||
+				         ', EMAIL: ' || TO_CHAR(:OLD.EMAIL)||
+				         ', BANK_ACCOUNT: ' || TO_CHAR(:OLD.BANK_ACCOUNT)||
+				         ', ADDRESS: ' || TO_CHAR(:OLD.ADDRESS)||
+				         ', DATE_OF_BIRTH: ' || TO_CHAR(:OLD.DATE_OF_BIRTH)||
+				         '  STUDENT_ID: ' || TO_CHAR(:OLD.STUDENT_ID) ||
+				         ', HALL: ' || TO_CHAR(:OLD.HALL)||
+				         ', NID: ' || TO_CHAR(:OLD.NID)||
+				         ', DEPT_ID: ' || TO_CHAR(:OLD.DEPT_ID) ||
+				         ', LEVEL: ' || TO_CHAR(:OLD."LEVEL") ||
+				         ', TERM: ' || TO_CHAR(:OLD.TERM);
+        INSERT INTO ADMIN_LOGS VALUES ('Deleting',DETAILS,'STUDENT',SYSDATE);
+
+    END IF;
+END;
+/
+
+-- ----------------------------
+-- Primary Key structure for table STUDENT_DUES
+-- ----------------------------
+ALTER TABLE "BIIS"."STUDENT_DUES" ADD CONSTRAINT "SYS_C007587" PRIMARY KEY ("STUDENT_ID", "DUES_ID");
+
+-- ----------------------------
+-- Checks structure for table STUDENT_DUES
+-- ----------------------------
+ALTER TABLE "BIIS"."STUDENT_DUES" ADD CONSTRAINT "SYS_C007585" CHECK ("STUDENT_ID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."STUDENT_DUES" ADD CONSTRAINT "SYS_C007586" CHECK ("DUES_ID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Triggers structure for table STUDENT_DUES
+-- ----------------------------
+CREATE TRIGGER "BIIS"."LOG_STUDENT_DUES" BEFORE DELETE OR INSERT OR UPDATE ON "BIIS"."STUDENT_DUES" REFERENCING OLD AS "OLD" NEW AS "NEW" FOR EACH ROW DISABLE 
+DECLARE
+		DETAILS VARCHAR2(255);
+BEGIN
+    IF INSERTING THEN
+				DETAILS:='Inserted:' ||
+				' STUDENT_ID: ' || TO_CHAR(:NEW.STUDENT_ID) ||
+				', DUES_ID: ' || TO_CHAR(:NEW.DUES_ID)||
+				', PAYMENT_DATE: ' || TO_CHAR(:NEW.PAYMENT_DATE)||
+				', STATUS: ' || TO_CHAR(:NEW.STATUS);
+        INSERT INTO ADMIN_LOGS VALUES ('Inserting',DETAILS,'STUDENT_DUES',SYSDATE);
+
+    ELSIF UPDATING THEN
+				DETAILS:='Before Update: ' ||
+				 'STUDENT_ID: ' || TO_CHAR(:OLD.STUDENT_ID) ||
+				 ', DUES_ID: ' || TO_CHAR(:OLD.DUES_ID)||
+				 ', PAYMENT_DATE: ' || TO_CHAR(:OLD.PAYMENT_DATE)||
+				 ', STATUS: ' || TO_CHAR(:OLD.STATUS)||
+         'After Update: ' ||
+					'STUDENT_ID: ' || TO_CHAR(:NEW.STUDENT_ID) ||
+					', DUES_ID: ' || TO_CHAR(:NEW.DUES_ID) ||
+					', PAYMENT_DATE: ' || TO_CHAR(:NEW.PAYMENT_DATE)| |
+					', STATUS: ' || TO_CHAR(:NEW.STATUS);
+        INSERT INTO ADMIN_LOGS VALUES ('Updating',DETAILS,'STUDENT_DUES',SYSDATE);
+
+    ELSIF DELETING THEN
+				DETAILS:='Deleted:'||
+				' STUDENT_ID: ' || TO_CHAR(:OLD.STUDENT_ID) ||
+				', DUES_ID: ' || TO_CHAR(:OLD.DUES_ID)||
+				', PAYMENT_DATE: ' || TO_CHAR(:OLD.PAYMENT_DATE) ||
+				', STATUS: ' || TO_CHAR(:OLD.STATUS);
+        INSERT INTO ADMIN_LOGS VALUES ('Deleting',DETAILS,'STUDENT_DUES',SYSDATE);
+    END IF;
+END;
+/
+
+-- ----------------------------
+-- Primary Key structure for table STUDENT_SCHOLARSHIP
+-- ----------------------------
+ALTER TABLE "BIIS"."STUDENT_SCHOLARSHIP" ADD CONSTRAINT "SYS_C007767" PRIMARY KEY ("STUDENT_ID");
+
+-- ----------------------------
+-- Checks structure for table STUDENT_SCHOLARSHIP
+-- ----------------------------
+ALTER TABLE "BIIS"."STUDENT_SCHOLARSHIP" ADD CONSTRAINT "SYS_C007765" CHECK ("STUDENT_ID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."STUDENT_SCHOLARSHIP" ADD CONSTRAINT "SYS_C007766" CHECK ("STATUS" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."STUDENT_SCHOLARSHIP" ADD CONSTRAINT "SYS_C007770" CHECK ("TEACHER_ID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Triggers structure for table STUDENT_SCHOLARSHIP
+-- ----------------------------
+CREATE TRIGGER "BIIS"."LOG_STUDENT_SCHOLARSHIP" BEFORE DELETE OR INSERT OR UPDATE ON "BIIS"."STUDENT_SCHOLARSHIP" REFERENCING OLD AS "OLD" NEW AS "NEW" FOR EACH ROW 
+DECLARE
+		DETAILS VARCHAR2(255);
+BEGIN
+    IF INSERTING THEN
+				DETAILS:='Inserted:' ||
+				' STUDENT_ID: ' || TO_CHAR(:NEW.STUDENT_ID) ||
+				', SCHOLARSHIP_ID: ' || TO_CHAR(:NEW.SCHOLARSHIP_ID)||
+				', STATUS: ' || TO_CHAR(:NEW.STATUS)||
+				', TEACHER_ID: ' || TO_CHAR(:NEW.TEACHER_ID);
+        INSERT INTO ADMIN_LOGS VALUES ('Inserting',DETAILS,'STUDENT_SCHOLARSHIP',SYSDATE);
+
+    ELSIF UPDATING THEN
+				DETAILS:='Before Update: ' ||
+				 'STUDENT_ID: ' || TO_CHAR(:OLD.STUDENT_ID) ||
+				 ', SCHOLARSHIP_ID: ' || TO_CHAR(:OLD.SCHOLARSHIP_ID)||
+				 ', STATUS: ' || TO_CHAR(:OLD.STATUS)||
+				 ', TEACHER_ID: ' || TO_CHAR(:OLD.TEACHER_ID)||
+         'After Update: ' ||
+					'STUDENT_ID: ' || TO_CHAR(:NEW.STUDENT_ID) ||
+					', SCHOLARSHIP_ID: ' || TO_CHAR(:NEW.SCHOLARSHIP_ID)||
+					', STATUS: ' || TO_CHAR(:NEW.STATUS) ||
+					', TEACHER_ID: ' || TO_CHAR(:NEW.TEACHER_ID);
+        INSERT INTO ADMIN_LOGS VALUES ('Updating',DETAILS,'STUDENT_SCHOLARSHIP',SYSDATE);
+
+    ELSIF DELETING THEN
+				DETAILS:='Deleted:' ||
+				' STUDENT_ID: ' ||  TO_CHAR(:OLD.STUDENT_ID)  ||
+				', SCHOLARSHIP_ID: ' ||  TO_CHAR(:OLD.SCHOLARSHIP_ID) ||
+				', STATUS: ' || TO_CHAR(:OLD.STATUS) ||
+				', TEACHER_ID: ' || TO_CHAR(:OLD.TEACHER_ID);
+        INSERT INTO ADMIN_LOGS VALUES ('Deleting',DETAILS,'STUDENT_SCHOLARSHIP',SYSDATE);
+
+    END IF;
+END;
+/
+
+-- ----------------------------
+-- Primary Key structure for table TEACHER
+-- ----------------------------
+ALTER TABLE "BIIS"."TEACHER" ADD CONSTRAINT "SYS_C007549" PRIMARY KEY ("TEACHER_ID");
+
+-- ----------------------------
+-- Checks structure for table TEACHER
+-- ----------------------------
+ALTER TABLE "BIIS"."TEACHER" ADD CONSTRAINT "SYS_C007548" CHECK ("TEACHER_ID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."TEACHER" ADD CONSTRAINT "SYS_C007561" CHECK ("DEPT_ID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."TEACHER" ADD CONSTRAINT "SYS_C007562" CHECK ("FIRSTNAME" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."TEACHER" ADD CONSTRAINT "SYS_C007563" CHECK ("LASTNAME" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Triggers structure for table TEACHER
+-- ----------------------------
+CREATE TRIGGER "BIIS"."LOG_TEACHER" BEFORE DELETE OR INSERT OR UPDATE ON "BIIS"."TEACHER" REFERENCING OLD AS "OLD" NEW AS "NEW" FOR EACH ROW 
+DECLARE
+		DETAILS VARCHAR2(255);
+BEGIN
+     IF INSERTING THEN
+				DETAILS:='Inserted:'||
+                  '  TEACHER_ID: ' || TO_CHAR(:NEW.TEACHER_ID) ||
+				         ', DEPT_ID: ' || TO_CHAR(:NEW.DEPT_ID)||
+				         ', FIRSTNAME: ' || TO_CHAR(:NEW.FIRSTNAME)||
+				         ', LASTNAME: ' || TO_CHAR(:NEW.LASTNAME)||
+				         ', PHONE1: ' || TO_CHAR(:NEW.PHONE1);
+        INSERT INTO ADMIN_LOGS VALUES ('Inserting',DETAILS,'TEACHER',SYSDATE);
+
+    ELSIF UPDATING THEN
+				DETAILS:='Before Update:'||
+                 '  TEACHER_ID: ' || TO_CHAR(:OLD.TEACHER_ID) ||
+				         ', DEPT_ID: ' || TO_CHAR(:OLD.DEPT_ID) ||
+				         ', FIRSTNAME: ' || TO_CHAR(:OLD.FIRSTNAME) ||
+				         ', LASTNAME: ' || TO_CHAR(:OLD.LASTNAME) ||
+								 'After Update:'||
+                 '  TEACHER_ID: ' || TO_CHAR(:NEW.TEACHER_ID) ||
+				         ', DEPT_ID: ' || TO_CHAR(:NEW.DEPT_ID) ||
+				         ', FIRSTNAME: ' || TO_CHAR(:NEW.FIRSTNAME) ||
+				         ', LASTNAME: ' || TO_CHAR(:NEW.LASTNAME) ||
+				         ', SALARY: ' || TO_CHAR(:NEW.SALARY);
+        INSERT INTO ADMIN_LOGS VALUES ('Updating',DETAILS,'TEACHER',SYSDATE);
+
+    ELSIF DELETING THEN
+				DETAILS:='Deleted:'||
+                    ' TEACHER_ID: ' || TO_CHAR(:OLD.TEACHER_ID) ||
+				         ', DEPT_ID: ' || TO_CHAR(:OLD.DEPT_ID) ||
+				         ', FIRSTNAME: ' || TO_CHAR(:OLD.FIRSTNAME) ||
+				         ', LASTNAME: ' || TO_CHAR(:OLD.LASTNAME) ||
+				         ', SALARY: ' || TO_CHAR(:OLD.SALARY);
+        INSERT INTO ADMIN_LOGS VALUES ('Deleting',DETAILS,'TEACHER',SYSDATE);
+
+    END IF;
+END;
+/
+
+-- ----------------------------
+-- Primary Key structure for table TEACHES
+-- ----------------------------
+ALTER TABLE "BIIS"."TEACHES" ADD CONSTRAINT "SYS_C007728" PRIMARY KEY ("COURSE_ID");
+
+-- ----------------------------
+-- Checks structure for table TEACHES
+-- ----------------------------
+ALTER TABLE "BIIS"."TEACHES" ADD CONSTRAINT "SYS_C007726" CHECK ("ID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."TEACHES" ADD CONSTRAINT "SYS_C007727" CHECK ("COURSE_ID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."TEACHES" ADD CONSTRAINT "SYS_C007794" CHECK ("ID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."TEACHES" ADD CONSTRAINT "SYS_C007795" CHECK ("COURSE_ID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."TEACHES" ADD CONSTRAINT "SYS_C007805" CHECK ("STATUS" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Triggers structure for table TEACHES
+-- ----------------------------
+CREATE TRIGGER "BIIS"."LOG_TEACHES" BEFORE DELETE OR INSERT OR UPDATE ON "BIIS"."TEACHES" REFERENCING OLD AS "OLD" NEW AS "NEW" FOR EACH ROW 
+DECLARE
+		DETAILS VARCHAR2(255);
+BEGIN
+    IF INSERTING THEN
+				DETAILS:='Inserted:'||
+				' ID: ' || TO_CHAR(:NEW.ID) ||
+				' COURSE_ID: ' || TO_CHAR(:NEW.COURSE_ID) ||
+				', STATUS: ' || TO_CHAR(:NEW.STATUS);
+        INSERT INTO ADMIN_LOGS VALUES ('Inserting',DETAILS,'TEACHES',SYSDATE);
+
+    ELSIF UPDATING THEN
+				DETAILS:='Before Update: ' ||
+				 'ID: ' || TO_CHAR(:OLD.ID) ||
+				 'COURSE_ID: ' || TO_CHAR(:OLD.COURSE_ID) ||
+				 ', STATUS: ' || TO_CHAR(:OLD.STATUS)||
+         'After Update: ' ||
+					'ID: ' || TO_CHAR(:NEW.ID) ||
+					'COURSE_ID: ' || TO_CHAR(:NEW.COURSE_ID) ||
+					', STATUS: ' || TO_CHAR(:NEW.STATUS);
+        INSERT INTO ADMIN_LOGS VALUES ('Updating',DETAILS,'TEACHES',SYSDATE);
+
+    ELSIF DELETING THEN
+				DETAILS:='Deleted:'||
+				' ID: ' || TO_CHAR(:OLD.ID) ||
+				' COURSE_ID: ' || TO_CHAR(:OLD.COURSE_ID) ||
+				', STATUS: ' || TO_CHAR(:OLD.STATUS);
+        INSERT INTO ADMIN_LOGS VALUES ('Deleting',DETAILS,'TEACHES',SYSDATE);
+
+    END IF;
+END;
+/
+CREATE TRIGGER "BIIS"."TEACHES_TABLE_TRIGGER" BEFORE INSERT ON "BIIS"."TEACHES" REFERENCING OLD AS "OLD" NEW AS "NEW" FOR EACH ROW 
+DECLARE
+MSG VARCHAR2(255);
+C NUMBER;
+BEGIN
+CHECK_VALID_TEACHES_ENTRY(:NEW.ID, :NEW.COURSE_ID,MSG);
+SELECT COUNT(*) INTO C FROM TEACHES WHERE TEACHES.ID= :NEW.ID AND TEACHES.STATUS= :NEW.STATUS;
+IF C>10 THEN
+    RAISE_APPLICATION_ERROR(-20001, 'too many teaches rows');
+ELSE
+IF MSG = 'valid teaches entry' THEN
+DBMS_OUTPUT.PUT_LINE(MSG);
+ELSE
+RAISE_APPLICATION_ERROR(-20002, 'invalid teaches entry');
+END IF;
+END IF;
+END;
+/
+
+-- ----------------------------
+-- Primary Key structure for table USER_TABLE
+-- ----------------------------
+ALTER TABLE "BIIS"."USER_TABLE" ADD CONSTRAINT "SYS_C007530" PRIMARY KEY ("USER_ID");
+
+-- ----------------------------
+-- Checks structure for table USER_TABLE
+-- ----------------------------
+ALTER TABLE "BIIS"."USER_TABLE" ADD CONSTRAINT "ROLE" CHECK (ROLE IN ('admin','student','teacher')) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."USER_TABLE" ADD CONSTRAINT "SYS_C007526" CHECK ("USER_ID" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."USER_TABLE" ADD CONSTRAINT "SYS_C007527" CHECK ("PASSWORD" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."USER_TABLE" ADD CONSTRAINT "SYS_C007604" CHECK ("ROLE" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Triggers structure for table USER_TABLE
+-- ----------------------------
+CREATE TRIGGER "BIIS"."log_user_table" BEFORE DELETE OR INSERT OR UPDATE ON "BIIS"."USER_TABLE" REFERENCING OLD AS "OLD" NEW AS "NEW" FOR EACH ROW 
+BEGIN
+    IF INSERTING THEN
+        -- This trigger is for INSERT
+        INSERT INTO ADMIN_LOGS
+        VALUES ('Inserting','USER_ID: ' || :NEW.USER_ID || ', PASSWORD: ' || :NEW.PASSWORD || ', ROLE: ' || :NEW.ROLE,'USER_TABLE',SYSDATE);
+    END IF;
+		IF UPDATING THEN
+        -- This trigger is for INSERT
+        INSERT INTO ADMIN_LOGS
+        VALUES ('Updating','Before Update: ' || 'USER_ID: ' || :OLD.USER_ID || ', PASSWORD: ' || :OLD.PASSWORD || ', ROLE: ' || :OLD.ROLE ||  
+				     'After Update: ' || 'USER_ID: ' || :NEW.USER_ID || ', PASSWORD: ' || :NEW.PASSWORD || ', ROLE: ' || :NEW.ROLE,'USER_TABLE',SYSDATE);
+    END IF;
+		IF DELETING THEN
+        -- This trigger is for INSERT
+        INSERT INTO ADMIN_LOGS
+        VALUES ('Deleting','Deleted: ' || 'USER_ID: ' || :OLD.USER_ID || ', PASSWORD: ' || :OLD.PASSWORD || ', ROLE: ' || :OLD.ROLE ,'USER_TABLE',SYSDATE);
+    END IF;
+END;
+/
+
+-- ----------------------------
+-- Foreign Keys structure for table ADVISOR
+-- ----------------------------
+ALTER TABLE "BIIS"."ADVISOR" ADD CONSTRAINT "A_SID" FOREIGN KEY ("S_ID") REFERENCES "BIIS"."STUDENT" ("STUDENT_ID") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."ADVISOR" ADD CONSTRAINT "A_TID" FOREIGN KEY ("I_ID") REFERENCES "BIIS"."TEACHER" ("TEACHER_ID") ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Foreign Keys structure for table COURSE
+-- ----------------------------
+ALTER TABLE "BIIS"."COURSE" ADD CONSTRAINT "C_DID" FOREIGN KEY ("DEPT_ID") REFERENCES "BIIS"."DEPARTMENT" ("DEPARTMENT_ID") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Foreign Keys structure for table ENROLLMENT
+-- ----------------------------
+ALTER TABLE "BIIS"."ENROLLMENT" ADD CONSTRAINT "E_CID" FOREIGN KEY ("COURSE_ID") REFERENCES "BIIS"."COURSE" ("COURSE_ID") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."ENROLLMENT" ADD CONSTRAINT "E_SID" FOREIGN KEY ("STUDENT_ID") REFERENCES "BIIS"."STUDENT" ("STUDENT_ID") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Foreign Keys structure for table RESULT
+-- ----------------------------
+ALTER TABLE "BIIS"."RESULT" ADD CONSTRAINT "R_CID" FOREIGN KEY ("COURSE_ID") REFERENCES "BIIS"."COURSE" ("COURSE_ID") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."RESULT" ADD CONSTRAINT "R_SID" FOREIGN KEY ("STUDENT_ID") REFERENCES "BIIS"."STUDENT" ("STUDENT_ID") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Foreign Keys structure for table STUDENT
+-- ----------------------------
+ALTER TABLE "BIIS"."STUDENT" ADD CONSTRAINT "DEPT_ID" FOREIGN KEY ("DEPT_ID") REFERENCES "BIIS"."DEPARTMENT" ("DEPARTMENT_ID") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."STUDENT" ADD CONSTRAINT "STUDENT_ID" FOREIGN KEY ("STUDENT_ID") REFERENCES "BIIS"."USER_TABLE" ("USER_ID") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Foreign Keys structure for table STUDENT_DUES
+-- ----------------------------
+ALTER TABLE "BIIS"."STUDENT_DUES" ADD CONSTRAINT "D_DID" FOREIGN KEY ("DUES_ID") REFERENCES "BIIS"."DUES" ("DUE_ID") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."STUDENT_DUES" ADD CONSTRAINT "D_SID" FOREIGN KEY ("STUDENT_ID") REFERENCES "BIIS"."STUDENT" ("STUDENT_ID") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Foreign Keys structure for table STUDENT_SCHOLARSHIP
+-- ----------------------------
+ALTER TABLE "BIIS"."STUDENT_SCHOLARSHIP" ADD CONSTRAINT "S_C_1" FOREIGN KEY ("STUDENT_ID") REFERENCES "BIIS"."STUDENT" ("STUDENT_ID") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."STUDENT_SCHOLARSHIP" ADD CONSTRAINT "S_C_2" FOREIGN KEY ("SCHOLARSHIP_ID") REFERENCES "BIIS"."SCHOLARSHIP" ("SCHOLARSHIP_ID") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."STUDENT_SCHOLARSHIP" ADD CONSTRAINT "S_C_3" FOREIGN KEY ("TEACHER_ID") REFERENCES "BIIS"."TEACHER" ("TEACHER_ID") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Foreign Keys structure for table TEACHER
+-- ----------------------------
+ALTER TABLE "BIIS"."TEACHER" ADD CONSTRAINT "DEPT_ID2" FOREIGN KEY ("DEPT_ID") REFERENCES "BIIS"."DEPARTMENT" ("DEPARTMENT_ID") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."TEACHER" ADD CONSTRAINT "TEACHER_ID" FOREIGN KEY ("TEACHER_ID") REFERENCES "BIIS"."USER_TABLE" ("USER_ID") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+
+-- ----------------------------
+-- Foreign Keys structure for table TEACHES
+-- ----------------------------
+ALTER TABLE "BIIS"."TEACHES" ADD CONSTRAINT "Course2" FOREIGN KEY ("COURSE_ID") REFERENCES "BIIS"."COURSE" ("COURSE_ID") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
+ALTER TABLE "BIIS"."TEACHES" ADD CONSTRAINT "course" FOREIGN KEY ("ID") REFERENCES "BIIS"."TEACHER" ("TEACHER_ID") ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;
