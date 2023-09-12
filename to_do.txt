@@ -1,0 +1,7 @@
+make a .env file in Project
+it should contain: 
+DB_USER= "your database user"
+DB_PASS= "your pass"
+DB_CONNECTION="your connection"
+PORT= "which port you want to run"
+JWT_SECRET= "secret key for making tokenw"
