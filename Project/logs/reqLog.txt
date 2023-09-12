@@ -4083,3 +4083,11 @@
 20230912	23:23:25	263a9aa5-e0ec-4e67-af6f-7d731e0a393d	GET	undefined	/
 20230912	23:23:25	3e899bc7-ade8-48da-a48d-c0a9589c3f77	GET	undefined	/
 20230912	23:23:25	ada59584-46df-4a76-8f5e-df6cb5ad967d	GET	undefined	/favicon.ico
+20230913	05:22:30	e1c6bc12-7335-47cc-ac78-3bdc891e64e4	GET	undefined	/
+20230913	05:22:30	801c5cf0-5ab0-4850-a5e7-f6e780fa70c4	GET	undefined	/
+20230913	05:22:32	f778b9df-d5ac-49fc-91bd-21092da1c59b	GET	undefined	/favicon.ico
+20230913	05:22:38	3a17f9bc-f632-4570-8f10-49bbd7d2a931	POST	http://localhost:3000	/login
+20230913	05:22:38	a024d3b7-5d7d-445e-ad71-e970491e900e	GET	undefined	/admin
+20230913	05:22:38	d3d8466f-61d4-4ec1-8e8a-ff1d0769296d	GET	undefined	/SocketIO-Script.js
+20230913	05:22:39	2efd3d2c-a17c-4bf5-a25b-411475da02ec	GET	undefined	/admin
+20230913	05:22:39	cee15b26-0aec-4870-8e7e-28b4720e2ec7	GET	undefined	/favicon.ico
