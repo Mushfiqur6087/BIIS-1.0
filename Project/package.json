@@ -3,7 +3,7 @@
         "start": "node server",
         "dev": "nodemon server"
     },
-    "author": "Dave Gray",
+    "author": "MushfiqurRahman",
     "license": "ISC",
     "dependencies": {
         "bcrypt": "^5.0.1",
